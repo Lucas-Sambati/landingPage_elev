@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useRef } from "react";
 
@@ -20,12 +19,7 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] pointer-events-none" />
 
       {/* Conteúdo central */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="relative z-10 text-center flex flex-col items-center gap-12"
-      >
+      <div className="relative z-10 text-center flex flex-col items-center gap-12">
         <h1
           className="text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight"
           style={{ fontFamily: "'Inter', sans-serif" }}
@@ -35,31 +29,26 @@ const HeroSection = () => {
           <span className="font-semibold text-gradient">começa aqui.</span>
         </h1>
 
-        <motion.button
+        <button
           onClick={goToAbout}
           onTouchEnd={(e) => {
             e.preventDefault();
             goToAbout();
           }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-          className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] touch-manipulation"
+          className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
           style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
         >
           Elevar meus resultados
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
 
       {/* Assinatura ELEV */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-        className="absolute bottom-8 z-10 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80"
+      <span
+        className="absolute bottom-8 z-10 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80 opacity-60"
         style={{ fontFamily: "'Montserrat', sans-serif" }}
       >
         ELEV
-      </motion.span>
+      </span>
     </section>
   );
 };
