@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
-  // Domínio customizado iniciar.elevhq.com — base na raiz
-  base: "/",
+  // GitHub Pages: https://lucas-sambati.github.io/landingPage_elev/
+  base: "/landingPage_elev/",
   server: {
     host: "::",
     port: 8080,
