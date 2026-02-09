@@ -21,9 +21,9 @@ const HeroSection = () => {
 
       {/* Conteúdo central */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="relative z-10 text-center flex flex-col items-center gap-12"
       >
         <h1
@@ -54,7 +54,7 @@ const HeroSection = () => {
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
-        transition={{ delay: 1.2, duration: 1.5 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
         className="absolute bottom-8 z-10 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80"
         style={{ fontFamily: "'Montserrat', sans-serif" }}
       >

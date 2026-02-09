@@ -72,10 +72,9 @@ const PricingSection = () => {
       <div className="max-w-lg mx-auto">
         {/* Pricing */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-display mb-3">
@@ -88,10 +87,9 @@ const PricingSection = () => {
           {plans.map((plan, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05, duration: 0.25 }}
               className={`glass-card p-6 relative ${
                 plan.popular ? "border-primary/50 ring-1 ring-primary/30" : ""
               }`}
@@ -134,10 +132,9 @@ const PricingSection = () => {
 
         {/* FAQ */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
         >
           <h3 className="text-2xl font-bold font-display mb-6 text-center">
             Perguntas frequentes

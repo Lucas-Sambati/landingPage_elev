@@ -16,10 +16,9 @@ const AboutSection = () => {
     <section className="py-20 px-6">
       <div className="max-w-lg mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-display mb-8 text-center">
             O que é o <span className="text-gradient">Elev</span>?
@@ -29,10 +28,9 @@ const AboutSection = () => {
             {painPoints.map((point, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.06, duration: 0.25 }}
                 className="glass-card p-4 flex items-center gap-3"
               >
                 <span className="text-[#22C55E] text-xl">✓</span>
@@ -47,25 +45,23 @@ const AboutSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
           className="flex gap-4 justify-center mb-12"
         >
           <div className="phone-mockup w-40 sm:w-48">
-            <img src={telaPerfil2} alt="Tela de perfil Elev" className="w-full" />
+            <img src={telaPerfil2} alt="Tela de perfil Elev" className="w-full" loading="lazy" />
           </div>
           <div className="phone-mockup w-40 sm:w-48 mt-8">
-            <img src={consultoriaIA3} alt="Consultoria IA Elev" className="w-full" />
+            <img src={consultoriaIA3} alt="Consultoria IA Elev" className="w-full" loading="lazy" />
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.25 }}
           className="text-center"
         >
           <button

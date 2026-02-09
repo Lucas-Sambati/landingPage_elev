@@ -3,13 +3,16 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import FeaturesPage from "./pages/FeaturesPage";
-import TestimonialsPage from "./pages/TestimonialsPage";
-import PricingPage from "./pages/PricingPage";
-import NotFound from "./pages/NotFound";
+
+// Lazy load secondary pages — only load when navigated to
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const FeaturesPage = lazy(() => import("./pages/FeaturesPage"));
+const TestimonialsPage = lazy(() => import("./pages/TestimonialsPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -19,16 +22,18 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/sobre" element={<AboutPage />} />
-            <Route path="/funcionalidades" element={<FeaturesPage />} />
-            <Route path="/depoimentos" element={<TestimonialsPage />} />
-            <Route path="/planos" element={<PricingPage />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/sobre" element={<AboutPage />} />
+              <Route path="/funcionalidades" element={<FeaturesPage />} />
+              <Route path="/depoimentos" element={<TestimonialsPage />} />
+              <Route path="/planos" element={<PricingPage />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -60,10 +60,9 @@ const FeaturesSection = () => {
     <section className="py-20 px-6">
       <div className="max-w-lg mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-10"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
@@ -96,9 +95,9 @@ const FeaturesSection = () => {
         {/* Active feature content */}
         <motion.div
           key={activeFeature}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.25 }}
         >
           <div className="glass-card p-6 mb-6">
             <div className="flex items-center gap-3 mb-3">
@@ -117,14 +116,14 @@ const FeaturesSection = () => {
             {features[activeFeature].images.map((img, i) => (
               <motion.div
                 key={img}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
+                transition={{ delay: i * 0.05, duration: 0.2 }}
                 className={`phone-mockup ${
                   features[activeFeature].images.length === 1 ? "w-52 sm:w-60" : "w-40 sm:w-48"
                 } ${i === 1 ? "mt-6" : ""}`}
               >
-                <img src={img} alt={features[activeFeature].title} className="w-full" />
+                <img src={img} alt={features[activeFeature].title} className="w-full" loading="lazy" />
               </motion.div>
             ))}
           </div>
@@ -145,10 +144,9 @@ const FeaturesSection = () => {
 
         {/* Next page button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.25 }}
           className="text-center mt-12"
         >
           <button
