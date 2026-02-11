@@ -22,7 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/landingPage_elev">
+      <BrowserRouter>
         <ScrollToTop />
         <Suspense fallback={null}>
           <Routes>
