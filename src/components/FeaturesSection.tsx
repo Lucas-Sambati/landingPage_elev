@@ -1,162 +1,287 @@
-import { motion } from "framer-motion";
-import { Bot, Dumbbell, Brain, Trophy, Globe } from "lucide-react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Bot, Dumbbell, Brain, Trophy, Users, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 
 import consultoriaIA1 from "@/assets/consultoriaIA1.png";
 import consultoriaIA2 from "@/assets/consultoriaIA2.png";
 import controleTreinos1 from "@/assets/controleTreinos1.png";
 import controleTreinos2 from "@/assets/controleTreinos2.png";
+import conteudoEducacional1 from "@/assets/conteudoEducacional1.png";
 import conteudoEducacional2 from "@/assets/conteudoEducacional2.png";
 import telaPerfil1 from "@/assets/telaPerfil1.png";
+import telaPerfil2 from "@/assets/telaPerfil2.png";
 import paginaInicial_Ranking from "@/assets/paginaInicial_Ranking.png";
 import paginaInicial_Comunidade from "@/assets/paginaInicial_Comunidade.png";
 
 interface Feature {
   icon: React.ReactNode;
+  hook: string;
   title: string;
   description: string;
+  highlights: string[];
   images: string[];
 }
 
 const features: Feature[] = [
   {
-    icon: <Bot className="w-6 h-6" />,
-    title: "Consultoria com IA",
-    description: "Envie suas métricas e receba plano alimentar + dicas de treino personalizadas.",
-    images: [consultoriaIA1, consultoriaIA2],
-  },
-  {
-    icon: <Dumbbell className="w-6 h-6" />,
-    title: "Controle de Treino",
-    description: "Layout moderno com histórico, métricas e vídeos de execução para cada exercício.",
+    icon: <Dumbbell className="w-5 h-5" />,
+    hook: "Seu caderninho de treino? Esquece.",
+    title: "Controle Total do Treino",
+    description:
+      "Registre séries, cargas e descanso com a precisão de uma planilha — e a praticidade de um toque. Histórico completo, vídeos de execução e métricas de evolução.",
+    highlights: [
+      "Layout inspirado em planilha, adaptado para o celular",
+      "Vídeos de execução para cada exercício",
+      "Histórico detalhado de evolução de carga",
+    ],
     images: [controleTreinos1, controleTreinos2],
   },
   {
-    icon: <Brain className="w-6 h-6" />,
-    title: "Aprendizado",
-    description: "Módulos explicativos e dinâmicos para evoluir seu conhecimento fitness.",
-    images: [conteudoEducacional2],
+    icon: <Bot className="w-5 h-5" />,
+    hook: "Orientação que evolui junto com você.",
+    title: "Consultoria com IA",
+    description:
+      "Suas métricas, seu histórico, seu físico — tudo é analisado pela IA para gerar um plano alimentar semanal e dicas de treino personalizadas para o seu momento.",
+    highlights: [
+      "Plano alimentar semanal personalizado",
+      "Dicas de treino baseadas no seu progresso",
+      "Disponível 24h, quando você precisar",
+    ],
+    images: [consultoriaIA1, consultoriaIA2],
   },
   {
-    icon: <Trophy className="w-6 h-6" />,
-    title: "Competição & Gamificação",
-    description: "XP, níveis, conquistas e rankings para manter sua motivação no máximo.",
-    images: [telaPerfil1, paginaInicial_Ranking],
+    icon: <Brain className="w-5 h-5" />,
+    hook: "Treinar sem entender é desperdiçar potencial.",
+    title: "Conteúdo que Transforma",
+    description:
+      "Módulos educativos e dinâmicos sobre treino, nutrição e mentalidade. Não é teoria genérica — é conhecimento aplicável que muda a forma como você treina.",
+    highlights: [
+      "Módulos organizados por tema e nível",
+      "Conteúdo direto, prático e visual",
+      "Aprenda no seu ritmo, dentro do app",
+    ],
+    images: [conteudoEducacional1, conteudoEducacional2],
   },
   {
-    icon: <Globe className="w-6 h-6" />,
-    title: "Rede Social Fitness",
-    description: "Ranking da comunidade, conquistas e comparação saudável e motivacional.",
-    images: [paginaInicial_Comunidade],
+    icon: <Trophy className="w-5 h-5" />,
+    hook: "Cada treino vale pontos. Cada ponto conta.",
+    title: "Sistema de Pontos & Níveis",
+    description:
+      "Ganhe XP a cada treino registrado, suba de nível e desbloqueie conquistas. O Elev transforma disciplina em jogo — e jogar é muito mais fácil do que se forçar.",
+    highlights: [
+      "XP por treino finalizado e metas batidas",
+      "Níveis que mostram sua consistência",
+      "Conquistas que celebram seu progresso",
+    ],
+    images: [telaPerfil1, telaPerfil2],
+  },
+  {
+    icon: <Users className="w-5 h-5" />,
+    hook: "Você não treina sozinho.",
+    title: "Ranking da Comunidade",
+    description:
+      "Compare seu progresso com outros usuários do Elev. Rankings semanais, conquistas compartilhadas e a motivação de saber que tem gente crescendo junto com você.",
+    highlights: [
+      "Rankings semanais e mensais",
+      "Veja quem está no topo e se inspire",
+      "Motivação através de competição saudável",
+    ],
+    images: [paginaInicial_Ranking, paginaInicial_Comunidade],
   },
 ];
 
 const FeaturesSection = () => {
-  const [activeFeature, setActiveFeature] = useState(0);
   const navigate = useNavigate();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    containScroll: false,
+    loop: false,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-lg mx-auto">
+    <section className="relative flex flex-col items-center overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 gradient-hero pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] pointer-events-none" />
+
+      <div className="relative z-10 w-full pt-10 pb-12">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.4 }}
+          className="text-center mb-10 px-6"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
-            🎮 Desbloqueie suas habilidades
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-10">
+            🎯 Muito além da consultoria
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-display">
-            O Sistema <span className="text-gradient">Elev</span>
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-3">
+            Tudo o que você precisa.
+            <br />
+            <span className="text-gradient">Em um único app.</span>
           </h2>
         </motion.div>
 
-        {/* Feature selector pills */}
-        <div className="flex gap-2 overflow-x-auto pb-4 mb-8 scrollbar-hide">
-          {features.map((f, i) => (
-            <motion.button
-              key={i}
-              onClick={() => setActiveFeature(i)}
-              whileTap={{ scale: 0.95 }}
-              className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                activeFeature === i
-                  ? "gradient-cta text-primary-foreground glow"
-                  : "bg-card border border-border text-muted-foreground hover:text-foreground"
-              }`}
+        {/* Swipe hint */}
+        <AnimatePresence>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center text-muted-foreground/50 text-xs mt-4 px-6 mb-5"
             >
-              {f.icon}
-              <span className="whitespace-nowrap">{f.title}</span>
-            </motion.button>
-          ))}
-        </div>
+              Deslize para o lado →
+            </motion.p>
+        </AnimatePresence>
 
-        {/* Active feature content */}
-        <motion.div
-          key={activeFeature}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
-        >
-          <div className="glass-card p-6 mb-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl gradient-cta flex items-center justify-center text-primary-foreground">
-                {features[activeFeature].icon}
-              </div>
-              <h3 className="text-xl font-bold font-display">{features[activeFeature].title}</h3>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">
-              {features[activeFeature].description}
-            </p>
-          </div>
-
-          {/* Phone mockups */}
-          <div className="flex gap-4 justify-center">
-            {features[activeFeature].images.map((img, i) => (
-              <motion.div
-                key={img}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.05, duration: 0.2 }}
-                className={`phone-mockup ${
-                  features[activeFeature].images.length === 1 ? "w-52 sm:w-60" : "w-40 sm:w-48"
-                } ${i === 1 ? "mt-6" : ""}`}
+        {/* Carrossel */}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="flex-[0_0_100%] min-w-0 px-6"
               >
-                <img src={img} alt={features[activeFeature].title} className="w-full" loading="lazy" />
-              </motion.div>
+                <div className="max-w-lg mx-auto">
+                  {/* Número + Hook */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs font-bold text-primary/40 tabular-nums">
+                      0{idx + 1}
+                    </span>
+                    <span className="h-px flex-1 bg-border/50" />
+                    <span className="text-xs text-muted-foreground/40">
+                      {idx + 1}/{features.length}
+                    </span>
+                  </div>
+                  <p className="text-primary text-sm font-medium mb-1.5 tracking-wide">
+                    {feature.hook}
+                  </p>
+
+                  {/* Título + Ícone */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-xl gradient-cta flex items-center justify-center text-primary-foreground flex-shrink-0">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold">{feature.title}</h3>
+                  </div>
+
+                  {/* Descrição */}
+                  <p className="text-muted-foreground text-[15px] leading-relaxed mb-4">
+                    {feature.description}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="space-y-2 mb-6">
+                    {feature.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2.5">
+                        <span className="text-[#22C55E] text-sm mt-0.5 flex-shrink-0">✓</span>
+                        <p className="text-foreground/80 text-sm leading-relaxed">{h}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Phone Mockups — pares mantidos */}
+                  <div className="flex gap-4 justify-center">
+                    {feature.images.map((img, i) => (
+                      <div
+                        key={img}
+                        className={`phone-mockup w-40 sm:w-48 ${i === 1 ? "mt-6" : ""}`}
+                      >
+                        <img
+                          src={img}
+                          alt={feature.title}
+                          className="w-full"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+        
+        {/* Indicador de slide + Setas */}
+        <div className="flex items-center justify-center gap-4 mb-6 px-6">
+          <button
+            onClick={scrollPrev}
+            disabled={selectedIndex === 0}
+            className="w-8 h-8 rounded-full bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
 
-        {/* Progress dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {features.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveFeature(i)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                activeFeature === i ? "w-6 bg-primary" : "bg-muted-foreground/30"
-              }`}
-            />
-          ))}
+          <div className="flex items-center gap-1.5">
+            {features.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => emblaApi?.scrollTo(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  selectedIndex === i
+                    ? "w-6 bg-primary"
+                    : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={scrollNext}
+            disabled={selectedIndex === features.length - 1}
+            className="w-8 h-8 rounded-full bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
 
-        {/* Next page button */}
+        {/* Frase de transição + CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.25 }}
-          className="text-center mt-12"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-center mt-10 px-6"
         >
+          <p className="text-muted-foreground text-sm leading-relaxed mb-2 italic">
+            "Tá, parece bom. Mas funciona de verdade?"
+          </p>
+          <p className="text-foreground/90 text-[15px] font-medium mb-8">
+            Veja o que quem já está usando tem a dizer.
+          </p>
+
           <button
             onClick={() => navigate("/depoimentos")}
-            className="gradient-cta text-primary-foreground font-semibold px-8 py-3.5 rounded-xl glow transition-all"
+            className="group bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation inline-flex items-center gap-2"
+            style={{ letterSpacing: "0.02em" }}
           >
-            Ver depoimentos
+            Ver resultados reais
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </button>
         </motion.div>
       </div>
+
+      {/* Assinatura ELEV */}
+      <span
+        className="relative z-10 pb-8 pt-8 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80 opacity-60"
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
+      >
+        ELEV
+      </span>
     </section>
   );
 };

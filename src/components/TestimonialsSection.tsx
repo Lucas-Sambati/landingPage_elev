@@ -33,15 +33,22 @@ const TestimonialsSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-lg mx-auto">
+    <section className="relative min-h-screen flex flex-col items-center px-6 overflow-hidden">
+      {/* Background sutil */}
+      <div className="absolute inset-0 gradient-hero pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] pointer-events-none" />
+
+      <div className="relative z-10 w-full pt-10 pb-12">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.4 }}
+          className="text-center mb-10 px-6"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold font-display mb-3">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-10">
+            ⭐ Resultados que falam por si
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
             Quem usa, <span className="text-gradient">evolui.</span>
           </h2>
           <p className="text-muted-foreground">Resultados reais de quem confia no Elev.</p>
@@ -84,12 +91,21 @@ const TestimonialsSection = () => {
         >
           <button
             onClick={() => navigate("/planos")}
-            className="gradient-cta text-primary-foreground font-semibold px-8 py-3.5 rounded-xl glow transition-all"
+            className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
+            style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
           >
             Ver planos
           </button>
         </motion.div>
       </div>
+
+      {/* Assinatura ELEV */}
+      <span
+        className="relative z-10 pb-8 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80 opacity-60"
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
+      >
+        ELEV
+      </span>
     </section>
   );
 };
