@@ -25,7 +25,8 @@ const plans = [
       { text: "Controle de treinos + histórico", included: true },
       { text: "Métricas do usuário", included: true },
       { text: "Pontos, levels e ranking da comunidade", included: true },
-      { text: "Envio de foto do físico", included: false },
+      { text: "Envio de foto do físico para análise", included: false },
+      { text: "Envio de preferências para análise", included: false },
       { text: "Conteúdos avançados", included: false },
     ],
   },
@@ -40,7 +41,7 @@ const plans = [
     includes: "Inclui tudo do Start +",
     features: [
       { text: "3 consultorias por semana", included: true },
-      { text: "Envio de foto do físico para análise + mensagem opcional", included: true },
+      { text: "Envio de foto do físico para análise + preferências", included: true },
       { text: "IA com respostas mais profundas", included: true },
       { text: "Melhor leitura do histórico e evolução", included: true },
       { text: "Conteúdos avançados", included: false },
@@ -51,7 +52,7 @@ const plans = [
     icon: <Crown className="w-5 h-5" />,
     price: "R$77,90",
     period: "/mês",
-    subtitle: "Para usuários avançados, obsessivos por resultado. O nível mais alto de acompanhamento inteligente",
+    subtitle: "Para usuários obsessivos por resultado, o nível mais alto de acompanhamento inteligente",
     popular: false,
     highlight: false,
     includes: "Inclui tudo do Progress +",
@@ -224,7 +225,7 @@ const PricingSection = () => {
                 {/* Tag extra para o destaque */}
                 {plan.highlight && (
                   <p className="text-center text-[11px] text-muted-foreground mt-3">
-                    7 dias grátis · sem compromisso
+                    · Ambiente Seguro ·
                   </p>
                 )}
               </div>
