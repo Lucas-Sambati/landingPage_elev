@@ -223,9 +223,12 @@ const PricingSection = () => {
                   {plan.highlight ? "Começar com Progress" : "Escolher plano"}
                 </button>
 
-                <p className="text-center text-[11px] text-muted-foreground mt-3">
-                  · Ambiente Seguro ·
-                </p>
+                {/* Tag extra para o destaque */}
+                {plan.highlight && (
+                  <p className="text-center text-[11px] text-muted-foreground mt-3">
+                    · Ambiente Seguro ·
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
