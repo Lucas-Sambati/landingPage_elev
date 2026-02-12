@@ -41,7 +41,8 @@ const plans = [
     includes: "Inclui tudo do Start +",
     features: [
       { text: "3 consultorias por semana", included: true },
-      { text: "Envio de foto do físico para análise + preferências", included: true },
+      { text: "Envio de foto do físico para análise", included: true },
+      { text: "Envio de preferências para análise", included: true },
       { text: "IA com respostas mais profundas", included: true },
       { text: "Melhor leitura do histórico e evolução", included: true },
       { text: "Conteúdos avançados", included: false },
@@ -222,12 +223,9 @@ const PricingSection = () => {
                   {plan.highlight ? "Começar com Progress" : "Escolher plano"}
                 </button>
 
-                {/* Tag extra para o destaque */}
-                {plan.highlight && (
-                  <p className="text-center text-[11px] text-muted-foreground mt-3">
-                    · Ambiente Seguro ·
-                  </p>
-                )}
+                <p className="text-center text-[11px] text-muted-foreground mt-3">
+                  · Ambiente Seguro ·
+                </p>
               </div>
             </motion.div>
           ))}
