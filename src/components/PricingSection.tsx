@@ -13,18 +13,19 @@ const plans = [
   {
     name: "Elev Start",
     icon: <Zap className="w-5 h-5" />,
-    price: "R$27",
+    price: "R$24,90",
     period: "/mês",
-    subtitle: "Para quem quer começar com o pé direito",
+    subtitle: "Comece com orientação inteligente e evolua no seu ritmo",
     popular: false,
     highlight: false,
     features: [
-      { text: "1 consultoria IA por semana", included: true },
-      { text: "Controle completo de treinos", included: true },
-      { text: "Gamificação e XP", included: true },
-      { text: "Acesso à comunidade", included: true },
-      { text: "Ranking da comunidade", included: false },
-      { text: "Conteúdo educacional", included: false },
+      { text: "Acesso completo ao app", included: true },
+      { text: "Controle de treinos + histórico", included: true },
+      { text: "Métricas do usuário (dashboard)", included: true },
+      { text: "Pontos, levels e ranking da comunidade", included: true },
+      { text: "1 consultoria por semana (métricas + dados personalizados)", included: true },
+      { text: "Envio de foto do físico", included: false },
+      { text: "Conteúdos avançados", included: false },
     ],
   },
   {
@@ -32,33 +33,33 @@ const plans = [
     icon: <Rocket className="w-5 h-5" />,
     price: "R$49,90",
     period: "/mês",
-    subtitle: "O plano que mais evolui junto com você",
+    subtitle: "Para quem quer evolução real e economizar centenas de reais por mês",
     popular: true,
     highlight: true,
+    includes: "Inclui tudo do Start +",
     features: [
-      { text: "3 consultorias IA por semana", included: true },
-      { text: "Controle completo de treinos", included: true },
-      { text: "Gamificação e XP", included: true },
-      { text: "Comunidade + Ranking completo", included: true },
-      { text: "Conteúdo educacional exclusivo", included: true },
-      { text: "Métricas avançadas de evolução", included: true },
+      { text: "🚀 3 consultorias por semana", included: true },
+      { text: "📸 Envio de foto do físico para análise + mensagem opcional", included: true },
+      { text: "🧠 IA com respostas mais profundas", included: true },
+      { text: "📊 Melhor leitura do histórico e evolução", included: true },
+      { text: "Conteúdos avançados", included: false },
     ],
   },
   {
     name: "Elev Elite",
     icon: <Crown className="w-5 h-5" />,
-    price: "R$79,90",
+    price: "R$77,90",
     period: "/mês",
-    subtitle: "Para quem leva resultado a sério",
+    subtitle: "Para usuários avançados, obsessivos por resultado. O nível mais alto de acompanhamento inteligente",
     popular: false,
     highlight: false,
+    includes: "Inclui tudo do Progress +",
     features: [
-      { text: "1 consultoria IA por dia", included: true },
-      { text: "Tudo do Progress incluso", included: true },
-      { text: "Suporte prioritário", included: true },
-      { text: "Análise avançada de métricas", included: true },
-      { text: "Relatórios detalhados semanais", included: true },
-      { text: "Acesso antecipado a novidades", included: true },
+      { text: "👑 Uso intensivo de consultorias semanais", included: true },
+      { text: "🔓 Conteúdos avançados exclusivos (Cutting & bulking, Platôs e estagnação)", included: true },
+      { text: "⚡ Prioridade de processamento", included: true },
+      { text: "🏆 Badge Elite no ranking", included: true },
+      { text: "🧪 Acesso antecipado a novas features", included: true },
     ],
   },
 ];
@@ -78,7 +79,7 @@ const faqItems = [
   },
   {
     q: "Qual a diferença entre os planos?",
-    a: "A principal diferença é a quantidade de consultorias com IA por semana. O Start te dá 1, o Progress 3 e o Elite 7 (uma por dia). O Progress e Elite também incluem ranking completo e conteúdo educacional exclusivo. Se está em dúvida, o Progress é o equilíbrio perfeito entre custo e resultado.",
+    a: "Cada plano evolui sobre o anterior. O Start traz 1 consultoria semanal, controle de treinos e ranking. O Progress adiciona 3 consultorias, envio de foto do físico e IA mais profunda. O Elite libera uso intensivo, conteúdos avançados exclusivos, badge no ranking e acesso antecipado a novidades. Se está em dúvida, o Progress é o equilíbrio perfeito entre custo e resultado.",
   },
   {
     q: "Posso cancelar a qualquer momento?",
@@ -173,6 +174,15 @@ const PricingSection = () => {
                   </span>
                   <span className="text-sm text-muted-foreground">{plan.period}</span>
                 </div>
+
+                {/* Inclui tag */}
+                {plan.includes && (
+                  <p className={`text-xs font-semibold mb-3 ${
+                    plan.highlight ? "text-primary" : "text-muted-foreground"
+                  }`}>
+                    {plan.includes}
+                  </p>
+                )}
 
                 {/* Separador */}
                 <div className={`h-px mb-5 ${
