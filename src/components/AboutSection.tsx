@@ -111,7 +111,7 @@ const AboutSection = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
           <div className="relative z-10">
             <p className="text-center text-sm font-semibold mb-4 tracking-wide uppercase">
-              <span className="text-gradient">Com o <span className="elev-brand">ELEV</span></span>
+              <span className="text-gradient">Com o ELEV</span>
             </p>
             <div className="space-y-2.5">
               <div className="flex items-start gap-2.5 px-1">
@@ -189,7 +189,7 @@ const AboutSection = () => {
             className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
             style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
           >
-            Conhecer o <span className="elev-brand">ELEV</span>
+            Conhecer o Elev
           </button>
         </motion.div>
       </div>
@@ -197,8 +197,8 @@ const AboutSection = () => {
       {/* Assinatura ELEV */}
       <span className="relative z-10 pb-8 flex items-center gap-1.5">
         <span
-          className="text-[10px] elev-brand"
-          style={{ color: "#4F46E5" }}
+          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
+          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
         >
           ELEV
         </span>
