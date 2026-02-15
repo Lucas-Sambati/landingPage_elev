@@ -130,10 +130,7 @@
   }
 
   .elev-brand {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.4em;
-    margin-right: -0.4em;
   }
 }

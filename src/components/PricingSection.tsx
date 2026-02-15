@@ -299,7 +299,7 @@ const PricingSection = () => {
       {/* Assinatura ELEV */}
       <span className="relative z-10 pb-8 flex items-center gap-1.5">
         <span
-          className="text-[10px] elev-brand"
+          className="text-[10px] font-semibold uppercase"
           style={{ color: "#4F46E5" }}
         >
           ELEV
