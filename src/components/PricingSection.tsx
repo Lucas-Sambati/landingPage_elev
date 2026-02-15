@@ -18,6 +18,7 @@ const plans = [
     subtitle: "Comece com orientação inteligente e evolua no seu ritmo",
     popular: false,
     highlight: false,
+    checkoutUrl: "https://pay.kirvano.com/998314eb-56e1-4934-a7c9-d9357756aaa0",
     features: [
       { text: "Acesso completo ao app", included: true },
       { text: "1 consultoria por semana", included: true },
@@ -38,6 +39,7 @@ const plans = [
     subtitle: "Para quem quer evolução real e economizar centenas de reais por mês",
     popular: true,
     highlight: true,
+    checkoutUrl: "https://pay.kirvano.com/769cadb9-3e6d-404a-84dd-a96769d3e613",
     includes: "Inclui tudo do Start +",
     features: [
       { text: "3 consultorias por semana", included: true },
@@ -56,6 +58,7 @@ const plans = [
     subtitle: "Para usuários obsessivos por resultado, o nível mais alto de acompanhamento inteligente",
     popular: false,
     highlight: false,
+    checkoutUrl: "https://pay.kirvano.com/9028b67a-f369-4cfb-a866-df8936a1e029",
     includes: "Inclui tudo do Progress +",
     features: [
       { text: "Uso intensivo de consultorias semanais", included: true },
@@ -213,15 +216,18 @@ const PricingSection = () => {
                 </ul>
 
                 {/* Botão */}
-                <button
-                  className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] touch-manipulation ${
+                <a
+                  href={plan.checkoutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full py-3.5 rounded-xl font-semibold text-sm text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] touch-manipulation ${
                     plan.highlight
                       ? "gradient-cta text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
                       : "bg-secondary text-foreground hover:bg-secondary/80 border border-border/50"
                   }`}
                 >
                   {plan.highlight ? "Começar com Progress" : "Escolher plano"}
-                </button>
+                </a>
 
                 {/* Tag extra para o destaque */}
                 {plan.highlight && (

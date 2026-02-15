@@ -217,7 +217,7 @@ const FeaturesSection = () => {
         </div>
         
         {/* Indicador de slide + Setas */}
-        <div className="flex items-center justify-center gap-4 mb-6 px-6">
+        <div className="flex items-center justify-center gap-4 mt-4 mb-6 px-6">
           <button
             onClick={scrollPrev}
             disabled={selectedIndex === 0}

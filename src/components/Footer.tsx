@@ -10,19 +10,21 @@ const Footer = () => {
       <div className="max-w-lg mx-auto px-6 py-12">
         {/* Logo & brand */}
         <div className="flex flex-col items-center gap-4 mb-8">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <img
-              src={LOGO_URL}
-              alt="Elev"
-              className="w-10 h-10 rounded-xl transition-transform group-hover:scale-105"
-            />
-            <span className="text-xl font-bold font-display text-foreground tracking-tight">
-              Elev
+          <Link to="/" className="flex items-center gap-2 group">
+            <span
+              className="font-display font-semibold uppercase text-xl"
+              style={{ color: "#4F46E5", letterSpacing: "0.4em" }}
+            >
+              ELEV
+            </span>
+            <span className="text-lg" style={{ color: "#4F46E5" }}>•</span>
+            <span
+              className="text-base font-sans"
+              style={{ color: "#737d7f" }}
+            >
+              Eleve seu resultado
             </span>
           </Link>
-          <p className="text-sm text-muted-foreground text-center max-w-xs">
-            Eleve seu resultado ao próximo nível. Treinos, nutrição e evolução — tudo movido por IA.
-          </p>
         </div>
 
         {/* Nav links */}
