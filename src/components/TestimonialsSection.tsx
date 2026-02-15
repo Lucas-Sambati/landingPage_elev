@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { renderWithElevBrand } from "@/lib/utils";
 
 const testimonials = [
   {
@@ -51,7 +52,7 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
             Quem usa, <span className="text-gradient">evolui.</span>
           </h2>
-          <p className="text-muted-foreground">Resultados reais de quem confia no Elev.</p>
+          <p className="text-muted-foreground">Resultados reais de quem confia no <span className="elev-brand">ELEV</span>.</p>
         </motion.div>
 
         <div className="space-y-4">
@@ -72,7 +73,7 @@ const TestimonialsSection = () => {
                   <p className="text-sm text-[#22C55E] font-medium">{t.result}</p>
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">"{t.text}"</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">"{renderWithElevBrand(t.text)}"</p>
               <div className="flex gap-0.5 mt-3">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="w-4 h-4 fill-[#22C55E] text-[#22C55E]" />
@@ -102,8 +103,8 @@ const TestimonialsSection = () => {
       {/* Assinatura ELEV */}
       <span className="relative z-10 pb-8 flex items-center gap-1.5">
         <span
-          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
-          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
+          className="text-[10px] elev-brand"
+          style={{ color: "#4F46E5" }}
         >
           ELEV
         </span>

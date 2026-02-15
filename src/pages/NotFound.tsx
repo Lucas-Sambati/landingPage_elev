@@ -30,8 +30,7 @@ const NotFound = () => {
 
       {/* Assinatura ELEV */}
       <span
-        className="absolute bottom-8 z-10 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80 opacity-60"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
+        className="absolute bottom-8 z-10 text-[10px] elev-brand text-muted-foreground/80 opacity-60"
       >
         ELEV
       </span>

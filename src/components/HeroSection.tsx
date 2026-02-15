@@ -45,8 +45,8 @@ const HeroSection = () => {
       {/* Assinatura ELEV */}
       <span className="absolute bottom-8 z-10 flex items-center gap-1.5">
         <span
-          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
-          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
+          className="text-[10px] elev-brand"
+          style={{ color: "#4F46E5" }}
         >
           ELEV
         </span>

@@ -3,6 +3,7 @@ import { Bot, Dumbbell, Brain, Trophy, Users, ArrowRight, ChevronLeft, ChevronRi
 import { useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
+import { renderWithElevBrand } from "@/lib/utils";
 
 import consultoriaIA1 from "@/assets/consultoriaIA1.png";
 import consultoriaIA2 from "@/assets/consultoriaIA2.png";
@@ -181,7 +182,7 @@ const FeaturesSection = () => {
 
                   {/* Descrição */}
                   <p className="text-muted-foreground text-[15px] leading-relaxed mb-4">
-                    {feature.description}
+                    {renderWithElevBrand(feature.description)}
                   </p>
 
                   {/* Highlights */}
@@ -278,8 +279,8 @@ const FeaturesSection = () => {
       {/* Assinatura ELEV */}
       <span className="relative z-10 pb-8 pt-8 flex items-center gap-1.5">
         <span
-          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
-          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
+          className="text-[10px] elev-brand"
+          style={{ color: "#4F46E5" }}
         >
           ELEV
         </span>

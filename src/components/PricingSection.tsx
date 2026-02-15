@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, ChevronDown, X, Zap, Crown, Rocket, Star } from "lucide-react";
 import { useState } from "react";
+import { renderWithElevBrand } from "@/lib/utils";
 
 const valueProps = [
   { icon: <Zap className="w-4 h-4" />, text: "Plano alimentar por IA" },
@@ -164,7 +165,7 @@ const PricingSection = () => {
                       <h3 className={`font-bold text-lg ${
                         plan.highlight ? "text-gradient" : "text-foreground"
                       }`}>
-                        {plan.name}
+                        {renderWithElevBrand(plan.name)}
                       </h3>
                       <p className="text-xs text-muted-foreground mt-0.5">{plan.subtitle}</p>
                     </div>
@@ -269,7 +270,7 @@ const PricingSection = () => {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full p-4 flex items-center justify-between text-left gap-3"
                 >
-                  <span className="font-medium text-foreground text-sm leading-snug">{faq.q}</span>
+                  <span className="font-medium text-foreground text-sm leading-snug">{renderWithElevBrand(faq.q)}</span>
                   <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
                     openFaq === i ? "bg-primary/20 rotate-180" : "bg-secondary"
                   }`}>
@@ -286,7 +287,7 @@ const PricingSection = () => {
                   className="overflow-hidden"
                 >
                   <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">
-                    {faq.a}
+                    {renderWithElevBrand(faq.a)}
                   </p>
                 </motion.div>
               </div>
@@ -298,8 +299,8 @@ const PricingSection = () => {
       {/* Assinatura ELEV */}
       <span className="relative z-10 pb-8 flex items-center gap-1.5">
         <span
-          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
-          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
+          className="text-[10px] elev-brand"
+          style={{ color: "#4F46E5" }}
         >
           ELEV
         </span>

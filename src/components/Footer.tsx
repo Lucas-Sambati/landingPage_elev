@@ -12,8 +12,8 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-4 mb-8">
           <Link to="/" className="flex items-center gap-2 group">
             <span
-              className="font-display font-semibold uppercase text-xl"
-              style={{ color: "#4F46E5", letterSpacing: "0.4em" }}
+              className="text-xl elev-brand"
+              style={{ color: "#4F46E5" }}
             >
               ELEV
             </span>
@@ -61,7 +61,7 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-border/30 pt-6">
           <p className="text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Elev. Todos os direitos reservados.
+            © {new Date().getFullYear()} <span className="elev-brand">ELEV</span>. Todos os direitos reservados.
           </p>
         </div>
       </div>

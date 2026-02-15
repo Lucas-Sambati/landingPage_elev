@@ -128,4 +128,12 @@
   .phone-mockup {
     @apply rounded-[2rem] border-4 border-muted/30 shadow-2xl overflow-hidden;
   }
+
+  .elev-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin-right: -0.4em;
+  }
 }

@@ -42,8 +42,8 @@ const Header = () => {
             alt="Elev"
             className="w-9 h-9 rounded-xl transition-transform group-hover:scale-105"
           />
-          <span className="text-xl font-bold font-display text-foreground tracking-tight">
-            Elev
+          <span className="text-xl font-display text-foreground elev-brand">
+            ELEV
           </span>
         </Link>
 
