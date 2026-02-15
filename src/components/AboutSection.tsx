@@ -189,7 +189,7 @@ const AboutSection = () => {
             className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
             style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
           >
-            Conhecer o Elev
+            Conhecer o ELEV
           </button>
         </motion.div>
       </div>
