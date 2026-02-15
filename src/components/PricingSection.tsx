@@ -296,11 +296,20 @@ const PricingSection = () => {
       </div>
 
       {/* Assinatura ELEV */}
-      <span
-        className="relative z-10 pb-8 text-[10px] font-semibold tracking-[0.4em] text-muted-foreground/80 opacity-60"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
-      >
-        ELEV
+      <span className="relative z-10 pb-8 flex items-center gap-1.5">
+        <span
+          className="text-[10px] font-semibold uppercase tracking-[0.4em]"
+          style={{ fontFamily: "'Montserrat', sans-serif", color: "#4F46E5" }}
+        >
+          ELEV
+        </span>
+        <span className="text-[10px]" style={{ color: "#4F46E5" }}>•</span>
+        <span
+          className="text-[10px]"
+          style={{ fontFamily: "'Inter', sans-serif", color: "#737d7f" }}
+        >
+          Eleve seu resultado
+        </span>
       </span>
     </section>
   );
