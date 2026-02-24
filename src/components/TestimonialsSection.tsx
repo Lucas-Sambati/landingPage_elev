@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
             Quem usa, <span className="text-gradient">evolui.</span>
           </h2>
-          <p className="text-muted-foreground">Resultados reais de quem confia no <span className="elev-brand">ELEV</span>.</p>
+          <p className="text-muted-foreground">Resultados reais de quem confiou no <span className="elev-brand">ELEV</span>.</p>
         </motion.div>
 
         <motion.div

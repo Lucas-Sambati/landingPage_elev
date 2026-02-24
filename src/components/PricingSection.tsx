@@ -123,7 +123,7 @@ const PricingSection = () => {
             Escolha seu <span className="text-gradient">plano</span>
           </h2>
           <p className="text-muted-foreground text-sm">
-            Comece sua evolução hoje. Cancele quando quiser.
+            Teste o ELEV por 7 dias sem risco. Se você não sentir evolução, devolvemos 100% do seu dinheiro.
           </p>
         </motion.div>
 
