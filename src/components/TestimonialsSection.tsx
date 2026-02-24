@@ -48,7 +48,10 @@ const TestimonialsSection = () => {
           className="text-center mt-12"
         >
           <button
-            onClick={() => navigate("/planos")}
+            onClick={() => {
+              if (typeof fbq === "function") fbq("track", "CompleteRegistration");
+              navigate("/planos");
+            }}
             className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
             style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
           >

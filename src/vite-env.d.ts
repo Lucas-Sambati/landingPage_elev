@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+declare function fbq(...args: unknown[]): void;
+
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
   readonly VITE_APP_DESCRIPTION: string;

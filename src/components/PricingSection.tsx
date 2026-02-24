@@ -221,6 +221,7 @@ const PricingSection = () => {
                   href={plan.checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => { if (typeof fbq === "function") fbq("track", "InitiateCheckout"); }}
                   className={`block w-full py-3.5 rounded-xl font-semibold text-sm text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] touch-manipulation ${
                     plan.highlight
                       ? "gradient-cta text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
