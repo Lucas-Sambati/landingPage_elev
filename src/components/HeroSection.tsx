@@ -8,7 +8,7 @@ const HeroSection = () => {
   const goToAbout = useCallback(() => {
     if (navigated.current) return;
     navigated.current = true;
-    if (typeof window.fbq === "function") window.fbq("track", "ViewContent");
+    if (typeof fbq === "function") fbq("track", "ViewContent");
     navigate("/sobre");
     setTimeout(() => { navigated.current = false; }, 400);
   }, [navigate]);
