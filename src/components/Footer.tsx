@@ -30,7 +30,6 @@ const Footer = () => {
         {/* Nav links */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
           {[
-            { label: "Sobre", to: "/sobre" },
             { label: "Funcionalidades", to: "/funcionalidades" },
             { label: "Depoimentos", to: "/depoimentos" },
             { label: "Planos", to: "/planos" },

@@ -6,10 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
-import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 // Lazy load secondary pages — only load when navigated to
-const AboutPage = lazy(() => import("./pages/AboutPage"));
+// HomePage desativada — AboutPage agora é a página inicial
+// const HomePage = lazy(() => import("./pages/HomePage"));
 const FeaturesPage = lazy(() => import("./pages/FeaturesPage"));
 const TestimonialsPage = lazy(() => import("./pages/TestimonialsPage"));
 const PricingPage = lazy(() => import("./pages/PricingPage"));
@@ -31,8 +32,7 @@ const App = () => (
         }>
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/sobre" element={<AboutPage />} />
+              <Route path="/" element={<AboutPage />} />
               <Route path="/funcionalidades" element={<FeaturesPage />} />
               <Route path="/depoimentos" element={<TestimonialsPage />} />
               <Route path="/planos" element={<PricingPage />} />

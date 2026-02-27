@@ -7,7 +7,6 @@ const LOGO_URL =
   "https://res.cloudinary.com/dnyylurcv/image/upload/v1770233888/bbtntttjzaalbrdb9xrf.png";
 
 const navItems = [
-  { label: "Sobre", to: "/sobre" },
   { label: "Funcionalidades", to: "/funcionalidades" },
   { label: "Depoimentos", to: "/depoimentos" },
   { label: "Planos", to: "/planos" },

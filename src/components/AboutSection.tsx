@@ -185,7 +185,10 @@ const AboutSection = () => {
           className="text-center"
         >
           <button
-            onClick={() => navigate("/funcionalidades")}
+            onClick={() => {
+              if (typeof fbq === "function") fbq("track", "ViewContent");
+              navigate("/funcionalidades");
+            }}
             className="bg-[#4F46E5] text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all hover:bg-[#4338CA] hover:scale-[1.02] active:scale-[0.97] touch-manipulation"
             style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}
           >
