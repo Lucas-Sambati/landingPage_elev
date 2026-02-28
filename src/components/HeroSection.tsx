@@ -8,8 +8,7 @@ const HeroSection = () => {
   const goToAbout = useCallback(() => {
     if (navigated.current) return;
     navigated.current = true;
-    // ViewContent desativado — agora disparado na AboutSection
-    // if (typeof fbq === "function") fbq("track", "ViewContent");
+
     navigate("/");
     setTimeout(() => { navigated.current = false; }, 400);
   }, [navigate]);
