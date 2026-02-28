@@ -222,7 +222,7 @@ const PricingSection = () => {
                   href={plan.checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block w-full py-3.5 rounded-xl font-semibold text-sm text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] touch-manipulation ${
+                  className={`checkout-btn block w-full py-3.5 rounded-xl font-semibold text-sm text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] touch-manipulation ${
                     plan.highlight
                       ? "gradient-cta text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
                       : "bg-secondary text-foreground hover:bg-secondary/80 border border-border/50"

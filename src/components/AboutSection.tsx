@@ -185,6 +185,7 @@ const AboutSection = () => {
           className="text-center"
         >
           <button
+            id="btn-conhecer-elev"
             onClick={() => {
               navigate("/funcionalidades");
             }}
