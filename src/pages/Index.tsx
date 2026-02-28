@@ -1,23 +1,25 @@
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
-import FloatingCTA from "@/components/FloatingCTA";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import ShowcaseSection from "@/components/landing/ShowcaseSection";
+import PricingSection from "@/components/landing/PricingSection";
+import FeedbackSection from "@/components/landing/FeedbackSection";
+import FAQSection from "@/components/landing/FAQSection";
+import Footer from "@/components/landing/Footer";
+import FakeNotifications from "@/components/landing/FakeNotifications";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Header />
+    <div className="min-h-screen bg-background">
+      <Navbar />
       <HeroSection />
-      <AboutSection />
       <FeaturesSection />
-      <TestimonialsSection />
+      <ShowcaseSection />
       <PricingSection />
+      <FeedbackSection />
+      <FAQSection />
       <Footer />
-      <FloatingCTA />
+      <FakeNotifications />
     </div>
   );
 };

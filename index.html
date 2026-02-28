@@ -18,17 +18,25 @@
     </script>
     <script>
       (function () {
-        var bound = false;
+        var boundIds = {};
+        var targetIds = [
+          "btn-conhecer-elev",
+          "btn-como-funciona",
+          "btn-comecar-nav",
+          "btn-comecar-nav-mobile",
+        ];
         var observer = new MutationObserver(function () {
-          var botao = document.getElementById("btn-conhecer-elev");
-          if (botao && !bound) {
-            bound = true;
-            botao.addEventListener("click", function () {
-              if (window.Tracker) {
-                window.Tracker.track("ViewContent");
-              }
-            });
-          }
+          targetIds.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el && !boundIds[id]) {
+              boundIds[id] = true;
+              el.addEventListener("click", function () {
+                if (window.Tracker) {
+                  window.Tracker.track("ViewContent");
+                }
+              });
+            }
+          });
         });
         observer.observe(document.documentElement, {
           childList: true,
