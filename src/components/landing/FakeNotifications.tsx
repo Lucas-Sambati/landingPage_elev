@@ -98,7 +98,7 @@ const FakeNotifications = () => {
   useEffect(() => {
     const initialDelay = setTimeout(() => {
       showNext();
-    }, 5000);
+    }, 8000);
     return () => clearTimeout(initialDelay);
   }, []);
 
