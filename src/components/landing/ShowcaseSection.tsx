@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import appMockup1 from "@/assets/newMockup/controleTreinos1.png";
-import appMockup2 from "@/assets/newMockup/controleTreinos2.png";
-import appMockup3 from "@/assets/newMockup/conteudoEducacional2.png";
-import appMockup4 from "@/assets/newMockup/paginaInicial_Ranking.png";
+import appMockup1 from "@/assets/newMockup/telaTreinos1.png";
+import appMockup2 from "@/assets/newMockup/telaTreinos2.png";
+import appMockup3 from "@/assets/newMockup/telaModulos.png";
+import appMockup4 from "@/assets/newMockup/telaRanking.png";
 import aiMockup1 from "@/assets/newMockup/consultoriaIA3.png";
 import aiMockup2 from "@/assets/newMockup/consultoriaIA2.png";
 import aiMockup3 from "@/assets/newMockup/consultoriaIA1.png";
@@ -27,6 +27,25 @@ const FlippingImage = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipPhase, setFlipPhase] = useState<"idle" | "out" | "in">("idle");
+  const [preloaded, setPreloaded] = useState(false);
+
+  // Preload all images before starting the flip cycle
+  useEffect(() => {
+    let cancelled = false;
+    const promises = images.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = src;
+        })
+    );
+    Promise.all(promises).then(() => {
+      if (!cancelled) setPreloaded(true);
+    });
+    return () => { cancelled = true; };
+  }, [images]);
 
   const doFlip = useCallback(() => {
     // Phase 1: rotate to 90deg (edge-on, hides image)
@@ -48,9 +67,10 @@ const FlippingImage = ({
   }, [images.length]);
 
   useEffect(() => {
+    if (!preloaded) return;
     const timer = setInterval(doFlip, interval);
     return () => clearInterval(timer);
-  }, [doFlip, interval]);
+  }, [doFlip, interval, preloaded]);
 
   const getTransform = () => {
     switch (flipPhase) {
