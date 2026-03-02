@@ -105,7 +105,7 @@ const FakeNotifications = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       showNext();
-    }, 28000 + Math.random() * 5000);
+    }, 38000 + Math.random() * 7000);
     return () => clearInterval(interval);
   }, [showNext]);
 

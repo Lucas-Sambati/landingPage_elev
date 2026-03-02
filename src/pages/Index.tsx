@@ -7,6 +7,7 @@ import FeedbackSection from "@/components/landing/FeedbackSection";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
 import FakeNotifications from "@/components/landing/FakeNotifications";
+import GuaranteeBanner from "@/components/landing/GuaranteeBanner";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <FAQSection />
       <Footer />
       <FakeNotifications />
+      <GuaranteeBanner />
     </div>
   );
 };

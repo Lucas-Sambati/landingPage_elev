@@ -14,7 +14,7 @@ const plans = [
   {
     name: "Elev Start",
     icon: <Zap className="w-5 h-5" />,
-    price: "R$24,90",
+    price: "R$37,00",
     period: "/mês",
     subtitle: "Comece com orientação inteligente e evolua no seu ritmo",
     popular: false,
@@ -35,7 +35,7 @@ const plans = [
   {
     name: "Elev Progress",
     icon: <Rocket className="w-5 h-5" />,
-    price: "R$49,90",
+    price: "R$47,00",
     period: "/mês",
     subtitle: "Para quem quer evolução real e economizar centenas de reais por mês",
     popular: true,
@@ -54,7 +54,7 @@ const plans = [
   {
     name: "Elev Elite",
     icon: <Crown className="w-5 h-5" />,
-    price: "R$77,90",
+    price: "R$89,00",
     period: "/mês",
     subtitle: "Para usuários obsessivos por resultado, o nível mais alto de acompanhamento inteligente",
     popular: false,

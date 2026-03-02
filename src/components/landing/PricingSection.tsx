@@ -5,15 +5,14 @@ import { Check, Sparkles } from "lucide-react";
 const plans = [
   {
     name: "ELEV Start",
-    price: "R$ 24,90",
+    price: "R$ 37,00",
     period: "/mês",
     description: "Para quem está começando a treinar com estratégia.",
     features: [
-      "Controle de treinos básico",
-      "1 análise IA por semana",
-      "Acesso à comunidade",
-      "Conteúdos sobre treino",
-      "Gamificação e ranking",
+      "Controle de treinos",
+      "1 análise IA limitada",
+      "Gameficação & Ranking",
+      "Comunidade",
     ],
     cta: "Escolher plano",
     highlighted: false,
@@ -21,15 +20,18 @@ const plans = [
   },
   {
     name: "ELEV Progress",
-    price: "R$ 49,90",
+    price: "R$ 47,00",
     period: "/mês",
     description: "Para quem quer resultados reais com acompanhamento IA.",
     features: [
       "Tudo do Start",
-      "3 análises IA por semana",
+      "3 análises IA completas por semana",
       "Envio de foto do físico para análise",
       "Envio de preferências para análise",
-      "Melhor leitura do histórico e evolução",
+      "Leitura inteligente do histórico e evolução",
+      "Plano de treino personalizado",
+      "Plano alimentar estratégico",
+      "Conteúdos completos"
     ],
     cta: "Evoluir agora",
     highlighted: true,
@@ -37,12 +39,12 @@ const plans = [
   },
   {
     name: "ELEV Elite",
-    price: "R$ 77,90",
+    price: "R$ 89,00",
     period: "/mês",
     description: "Para quem quer o máximo da plataforma e conteúdo premium.",
     features: [
       "Tudo do Progress",
-      "5 análises IA por semana",
+      "5 análises IA completas por semana",
       "Conteúdo exclusivo Elite",
       "Badge Elite no perfil",
       "Suporte prioritário",
@@ -132,7 +134,7 @@ const PricingSection = () => {
                 </a>
               </Button>
               <p className="text-xs text-center mt-3 text-muted-foreground/60">
-                · Ambiente Seguro ·
+                · Ambiente Seguro · Garantia 7 Dias ·
               </p>
               </motion.div>
             </div>

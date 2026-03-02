@@ -1,6 +1,89 @@
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import appMockup from "@/assets/controleTreinos1.png";
-import aiMockup from "@/assets/consultoriaIA3.png";
+import appMockup1 from "@/assets/newMockup/controleTreinos1.png";
+import appMockup2 from "@/assets/newMockup/controleTreinos2.png";
+import appMockup3 from "@/assets/newMockup/conteudoEducacional2.png";
+import appMockup4 from "@/assets/newMockup/paginaInicial_Ranking.png";
+import aiMockup1 from "@/assets/newMockup/consultoriaIA3.png";
+import aiMockup2 from "@/assets/newMockup/consultoriaIA2.png";
+import aiMockup3 from "@/assets/newMockup/consultoriaIA1.png";
+import aiMockup4 from "@/assets/newMockup/telaPerfil2.png";
+
+const appImages = [appMockup1, appMockup2, appMockup3, appMockup4];
+const aiImages = [aiMockup1, aiMockup2, aiMockup3, aiMockup4];
+
+const FlippingImage = ({
+  images,
+  interval = 3000,
+  alt,
+  className,
+  style,
+}: {
+  images: string[];
+  interval?: number;
+  alt: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [flipPhase, setFlipPhase] = useState<"idle" | "out" | "in">("idle");
+
+  const doFlip = useCallback(() => {
+    // Phase 1: rotate to 90deg (edge-on, hides image)
+    setFlipPhase("out");
+
+    setTimeout(() => {
+      // At 90deg, swap image and jump to -90deg instantly
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setFlipPhase("in");
+
+      // Force a reflow so the jump to -90deg happens without transition
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // Phase 2: rotate from -90deg back to 0deg (reveals new image)
+          setFlipPhase("idle");
+        });
+      });
+    }, 120);
+  }, [images.length]);
+
+  useEffect(() => {
+    const timer = setInterval(doFlip, interval);
+    return () => clearInterval(timer);
+  }, [doFlip, interval]);
+
+  const getTransform = () => {
+    switch (flipPhase) {
+      case "out": return "rotateY(90deg)";
+      case "in": return "rotateY(-90deg)";
+      case "idle": return "rotateY(0deg)";
+    }
+  };
+
+  const getTransition = () => {
+    // No transition for the instant jump from 90deg to -90deg
+    if (flipPhase === "in") return "none";
+    return "transform 0.12s ease-in-out";
+  };
+
+  return (
+    <div style={{ perspective: "1200px", ...style }} className={className}>
+      <div
+        style={{
+          transform: getTransform(),
+          transition: getTransition(),
+          transformStyle: "preserve-3d",
+        }}
+      >
+        <img
+          src={images[currentIndex]}
+          alt={alt}
+          className="w-72 animate-float drop-shadow-2xl rounded-2xl glow-border-static"
+        />
+      </div>
+    </div>
+  );
+};
 
 const ShowcaseSection = () => {
   return (
@@ -40,10 +123,11 @@ const ShowcaseSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <img
-              src={appMockup}
+            <FlippingImage
+              images={appImages}
+              interval={3500}
               alt="ELEV app - controle de treinos"
-              className="w-72 animate-float drop-shadow-2xl rounded-2xl glow-border-static"
+              className="flex justify-center"
             />
           </motion.div>
         </div>
@@ -83,11 +167,11 @@ const ShowcaseSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center md:order-1"
           >
-            <img
-              src={aiMockup}
+            <FlippingImage
+              images={aiImages}
+              interval={3500}
               alt="ELEV app - consultoria IA"
-              className="w-72 animate-float drop-shadow-2xl rounded-2xl glow-border-static"
-              style={{ animationDelay: "3s" }}
+              className="flex justify-center"
             />
           </motion.div>
         </div>
