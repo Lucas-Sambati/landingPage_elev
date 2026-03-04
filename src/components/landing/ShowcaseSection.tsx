@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import appMockup1 from "@/assets/newMockup/telaTreinos1.png";
-import appMockup2 from "@/assets/newMockup/telaTreinos2.png";
-import appMockup3 from "@/assets/newMockup/telaModulos.png";
-import appMockup4 from "@/assets/newMockup/telaRanking.png";
-import aiMockup1 from "@/assets/newMockup/consultoriaIA3.png";
-import aiMockup2 from "@/assets/newMockup/consultoriaIA2.png";
-import aiMockup3 from "@/assets/newMockup/consultoriaIA1.png";
-import aiMockup4 from "@/assets/newMockup/telaPerfil2.png";
+import appMockup1 from "@/assets/newMockup/telaTreinos1.webp";
+import appMockup2 from "@/assets/newMockup/telaTreinos2.webp";
+import appMockup3 from "@/assets/newMockup/telaModulos.webp";
+import appMockup4 from "@/assets/newMockup/telaRanking.webp";
+import aiMockup1 from "@/assets/newMockup/consultoriaIA3.webp";
+import aiMockup2 from "@/assets/newMockup/consultoriaIA2.webp";
+import aiMockup3 from "@/assets/newMockup/consultoriaIA1.webp";
+import aiMockup4 from "@/assets/newMockup/telaPerfil2.webp";
 
 const appImages = [appMockup1, appMockup2, appMockup3, appMockup4];
 const aiImages = [aiMockup1, aiMockup2, aiMockup3, aiMockup4];
@@ -98,6 +98,8 @@ const FlippingImage = ({
         <img
           src={images[currentIndex]}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           className="w-72 animate-float drop-shadow-2xl rounded-2xl glow-border-static"
         />
       </div>

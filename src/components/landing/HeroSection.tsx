@@ -1,7 +1,7 @@
 import { motion, type Easing } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@/assets/hero-bg.webp";
 
 const ease: Easing = [0.25, 0.1, 0.25, 1];
 
@@ -22,6 +22,8 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt="Atleta treinando"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />

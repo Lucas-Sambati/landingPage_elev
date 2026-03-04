@@ -1,52 +1,25 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      async
-      defer
-    ></script>
-    <script>
-      window.pixelId = "69a27d2873a647fcc4e1800d";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
-    </script>
-    <script>
-      (function () {
-        var boundIds = {};
-        var targetIds = [
-          "btn-conhecer-elev",
-          "btn-como-funciona",
-          "btn-comecar-nav",
-          "btn-comecar-nav-mobile",
-        ];
-        var observer = new MutationObserver(function () {
-          targetIds.forEach(function (id) {
-            var el = document.getElementById(id);
-            if (el && !boundIds[id]) {
-              boundIds[id] = true;
-              el.addEventListener("click", function () {
-                if (window.Tracker) {
-                  window.Tracker.track("ViewContent");
-                }
-              });
-            }
-          });
-        });
-        observer.observe(document.documentElement, {
-          childList: true,
-          subtree: true,
-        });
-      })();
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elev | Eleve seu resultado</title>
+
+    <!-- Google Fonts: preconnect + non-blocking load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      />
+    </noscript>
     <meta
       name="description"
       content="Consultoria fitness com inteligência artificial. Treinos, nutrição e evolução real."
@@ -99,5 +72,50 @@
     </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Tracking scripts: loaded after main content -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    <script>
+      window.pixelId = "69a27d2873a647fcc4e1800d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script>
+      (function () {
+        var boundIds = {};
+        var targetIds = [
+          "btn-conhecer-elev",
+          "btn-como-funciona",
+          "btn-comecar-nav",
+          "btn-comecar-nav-mobile",
+        ];
+        var observer = new MutationObserver(function () {
+          targetIds.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el && !boundIds[id]) {
+              boundIds[id] = true;
+              el.addEventListener("click", function () {
+                if (window.Tracker) {
+                  window.Tracker.track("ViewContent");
+                }
+              });
+            }
+          });
+        });
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+      })();
+    </script>
   </body>
 </html>

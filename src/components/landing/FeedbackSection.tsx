@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import feedbackImg from "@/assets/feedbacks.png";
+import feedbackImg from "@/assets/feedbacks.webp";
 
 const FeedbackSection = () => {
   return (
@@ -27,6 +27,8 @@ const FeedbackSection = () => {
           <img
             src={feedbackImg}
             alt="Feedbacks de usuários do ELEV"
+            loading="lazy"
+            decoding="async"
             className="w-full max-w-2xl md:max-w-md rounded-2xl"
           />
         </motion.div>
