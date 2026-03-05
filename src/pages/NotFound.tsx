@@ -1,15 +1,12 @@
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const LOGO_URL =
-  "https://res.cloudinary.com/dnyylurcv/image/upload/v1770233888/bbtntttjzaalbrdb9xrf.png";
+  "https://res.cloudinary.com/dnyylurcv/image/upload/f_auto,q_auto,w_64/v1770233888/bbtntttjzaalbrdb9xrf.png";
 
 const NotFound = () => {
-  const location = useLocation();
-
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
+    console.error("404 Error: User attempted to access non-existent route:", window.location.pathname);
+  }, []);
 
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-background overflow-hidden">

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 
@@ -60,7 +60,7 @@ const PricingSection = () => {
     <section id="planos" className="py-14 relative">
       <div className="absolute inset-0 bg-glow opacity-20" />
       <div className="container relative z-10">
-        <motion.div
+        <m.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const PricingSection = () => {
           <p className="text-muted-foreground max-w-lg mx-auto">
             Escolha o plano que combina com você. Cancele quando quiser.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
@@ -85,7 +85,7 @@ const PricingSection = () => {
                   Mais popular
                 </div>
               )}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -136,7 +136,7 @@ const PricingSection = () => {
               <p className="text-xs text-center mt-3 text-muted-foreground/60">
                 · Ambiente Seguro · Garantia 7 Dias ·
               </p>
-              </motion.div>
+              </m.div>
             </div>
           ))}
         </div>

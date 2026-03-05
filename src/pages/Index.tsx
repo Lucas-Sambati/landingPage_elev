@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
 
@@ -14,20 +15,22 @@ const GuaranteeBanner = lazy(() => import("@/components/landing/GuaranteeBanner"
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <Suspense fallback={null}>
-        <FeaturesSection />
-        <ShowcaseSection />
-        <PricingSection />
-        <FeedbackSection />
-        <FAQSection />
-        <Footer />
-        <FakeNotifications />
-        <GuaranteeBanner />
-      </Suspense>
-    </div>
+    <LazyMotion features={domAnimation} strict>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <Suspense fallback={null}>
+          <FeaturesSection />
+          <ShowcaseSection />
+          <PricingSection />
+          <FeedbackSection />
+          <FAQSection />
+          <Footer />
+          <FakeNotifications />
+          <GuaranteeBanner />
+        </Suspense>
+      </div>
+    </LazyMotion>
   );
 };
 

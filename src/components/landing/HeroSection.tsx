@@ -1,4 +1,4 @@
-import { motion, type Easing } from "framer-motion";
+import { m, type Easing } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
@@ -33,30 +33,30 @@ const HeroSection = () => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-glow animate-pulse-glow" />
 
       <div className="container relative z-10 py-0 sm:py-20">
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto text-center mt-16 sm:mt-0"
           initial="hidden"
           animate="visible"
         >
-          <motion.h1
+          <m.h1
             custom={1}
             variants={fadeUp}
             className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
           >
             Esse é o ano de{" "}
             <span className="text-gradient-brand">colocar o shape.</span>
-          </motion.h1>
+          </m.h1>
 
 
-          <motion.p
+          <m.p
             custom={2}
             variants={fadeUp}
             className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
           >
             Tenha um robô personal + nutricionista no seu bolso.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             custom={3}
             variants={fadeUp}
             className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -70,17 +70,17 @@ const HeroSection = () => {
             <Button id="btn-como-funciona" variant="hero-outline" size="xl" asChild>
               <a href="#features">Como funciona</a>
             </Button>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             custom={4}
             variants={fadeUp}
             className="mt-10 text-sm text-muted-foreground/80 italic"
           >
             Todos os dias, mais pessoas decidem transformar seu corpo com o ELEV.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             custom={5}
             variants={fadeUp}
             className="mt-12 flex flex-wrap sm:flex-nowrap items-center justify-center gap-3 sm:gap-8 text-muted-foreground text-sm"
@@ -97,8 +97,8 @@ const HeroSection = () => {
               <div className="w-2 h-2 rounded-full bg-success" />
               <span>Garantia de 7 dias</span>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

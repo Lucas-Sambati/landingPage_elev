@@ -1,5 +1,5 @@
 const LOGO_URL =
-  "https://res.cloudinary.com/dnyylurcv/image/upload/v1770233888/bbtntttjzaalbrdb9xrf.png";
+  "https://res.cloudinary.com/dnyylurcv/image/upload/f_auto,q_auto,w_64/v1770233888/bbtntttjzaalbrdb9xrf.png";
 
 const Footer = () => {
   return (

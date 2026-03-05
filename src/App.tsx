@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const App = () => (
-  <BrowserRouter>
+const App = () => {
+  const isHome = window.location.pathname === "/";
+
+  return isHome ? (
+    <Index />
+  ) : (
     <Suspense fallback={null}>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <NotFound />
     </Suspense>
-  </BrowserRouter>
-);
+  );
+};
 
 export default App;

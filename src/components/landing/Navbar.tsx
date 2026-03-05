@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const LOGO_URL =
-  "https://res.cloudinary.com/dnyylurcv/image/upload/v1770233888/bbtntttjzaalbrdb9xrf.png";
+  "https://res.cloudinary.com/dnyylurcv/image/upload/f_auto,q_auto,w_64/v1770233888/bbtntttjzaalbrdb9xrf.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -61,7 +61,7 @@ const Navbar = () => {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -82,7 +82,7 @@ const Navbar = () => {
                 <a href="#planos" onClick={() => setMobileOpen(false)}>Começar agora</a>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ShieldCheck, X } from "lucide-react";
 
 const DISPLAY_DURATION = 6000; // tempo visível (ms)
@@ -31,7 +31,7 @@ const GuaranteeBanner = () => {
     <div className="fixed top-16 left-0 right-0 z-40 flex justify-center pointer-events-none">
       <AnimatePresence>
         {visible && (
-          <motion.div
+          <m.div
             key="guarantee-banner"
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -39,7 +39,7 @@ const GuaranteeBanner = () => {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-card/90 backdrop-blur-xl glow-border-static shadow-lg pointer-events-auto"
           >
-            <motion.div
+            <m.div
               className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/15 flex items-center justify-center"
               animate={{
                 scale: [1, 1.2, 1],
@@ -53,7 +53,7 @@ const GuaranteeBanner = () => {
               }}
             >
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
-            </motion.div>
+            </m.div>
             <p className="text-xs text-white leading-snug">
               <span className="font-bold">Garantia de 7 dias</span>
               {" · "}
@@ -65,7 +65,7 @@ const GuaranteeBanner = () => {
             >
               <X className="w-3.5 h-3.5" />
             </button>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

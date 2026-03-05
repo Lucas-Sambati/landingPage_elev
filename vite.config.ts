@@ -20,7 +20,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           // Vendor: React core (compartilhado por todos os chunks)
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-react": ["react", "react-dom"],
           // Framer Motion isolado (maior dep)
           "vendor-motion": ["framer-motion"],
         },

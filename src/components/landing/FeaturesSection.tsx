@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Dumbbell, Brain, Trophy, BookOpen } from "lucide-react";
 
 const features = [
@@ -29,7 +29,7 @@ const FeaturesSection = () => {
     <section id="features" className="py-14 relative">
       <div className="absolute inset-0 bg-glow opacity-30" />
       <div className="container relative z-10">
-        <motion.div
+        <m.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,11 +44,11 @@ const FeaturesSection = () => {
           <p className="text-muted-foreground max-w-lg mx-auto">
             O ELEV integra treino, alimentação, comunidade e inteligência artificial em uma única plataforma.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {features.map((feature, i) => (
-            <motion.div
+            <m.div
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const FeaturesSection = () => {
               </div>
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

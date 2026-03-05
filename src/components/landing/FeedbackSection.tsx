@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import feedbackImg from "@/assets/feedbacks.webp";
 
 const FeedbackSection = () => {
   return (
     <section id="usuarios" className="py-14 relative overflow-hidden">
       <div className="container relative z-10">
-        <motion.div
+        <m.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,9 +15,9 @@ const FeedbackSection = () => {
             Eles pensaram exatamente o que você{" "}
             <span className="text-gradient-brand">está pensando agora</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="flex justify-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ const FeedbackSection = () => {
             decoding="async"
             className="w-full max-w-2xl md:max-w-md rounded-2xl"
           />
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

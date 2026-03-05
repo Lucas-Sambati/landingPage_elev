@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Flame } from "lucide-react";
 
@@ -7,7 +7,7 @@ const CTASection = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-glow" />
       <div className="container relative z-10">
-        <motion.div
+        <m.div
           className="max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ const CTASection = () => {
               <ArrowRight className="w-5 h-5 ml-1" />
             </a>
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

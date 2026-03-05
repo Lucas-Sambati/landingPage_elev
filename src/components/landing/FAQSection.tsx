@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -43,7 +43,7 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-14 relative">
       <div className="container relative z-10 max-w-3xl">
-        <motion.div
+        <m.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,9 +59,9 @@ const FAQSection = () => {
           <p className="text-muted-foreground max-w-lg mx-auto">
             Tire suas dúvidas sobre o ELEV antes de começar.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -83,7 +83,7 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

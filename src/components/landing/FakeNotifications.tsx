@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Dumbbell, Sparkles, Brain, Trophy, Flame, TrendingUp, X } from "lucide-react";
 
 type NotifType = "treino" | "plano" | "consultoria" | "ranking" | "streak" | "evolucao";
@@ -113,7 +113,7 @@ const FakeNotifications = () => {
     <div className="fixed bottom-4 left-4 z-50 pointer-events-none">
       <AnimatePresence>
         {current && (
-          <motion.div
+          <m.div
             key={current.prefix + current.bold}
             initial={{ opacity: 0, y: 20, x: -20 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
@@ -133,7 +133,7 @@ const FakeNotifications = () => {
             >
               <X className="w-3 h-3" />
             </button>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

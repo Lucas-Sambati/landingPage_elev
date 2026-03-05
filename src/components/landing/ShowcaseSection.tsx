@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import appMockup1 from "@/assets/newMockup/telaTreinos1.webp";
 import appMockup2 from "@/assets/newMockup/telaTreinos2.webp";
 import appMockup3 from "@/assets/newMockup/telaModulos.webp";
@@ -113,7 +113,7 @@ const ShowcaseSection = () => {
       <div className="container">
         {/* Workout tracking showcase */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -137,8 +137,8 @@ const ShowcaseSection = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-          <motion.div
+          </m.div>
+          <m.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -151,12 +151,12 @@ const ShowcaseSection = () => {
               alt="ELEV app - controle de treinos"
               className="flex justify-center"
             />
-          </motion.div>
+          </m.div>
         </div>
 
         {/* AI showcase */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -181,8 +181,8 @@ const ShowcaseSection = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-          <motion.div
+          </m.div>
+          <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -195,7 +195,7 @@ const ShowcaseSection = () => {
               alt="ELEV app - consultoria IA"
               className="flex justify-center"
             />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>
