@@ -1,27 +1,32 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
-import FeaturesSection from "@/components/landing/FeaturesSection";
-import ShowcaseSection from "@/components/landing/ShowcaseSection";
-import PricingSection from "@/components/landing/PricingSection";
-import FeedbackSection from "@/components/landing/FeedbackSection";
-import FAQSection from "@/components/landing/FAQSection";
-import Footer from "@/components/landing/Footer";
-import FakeNotifications from "@/components/landing/FakeNotifications";
-import GuaranteeBanner from "@/components/landing/GuaranteeBanner";
+
+// Seções abaixo da dobra — carregadas sob demanda
+const FeaturesSection = lazy(() => import("@/components/landing/FeaturesSection"));
+const ShowcaseSection = lazy(() => import("@/components/landing/ShowcaseSection"));
+const PricingSection = lazy(() => import("@/components/landing/PricingSection"));
+const FeedbackSection = lazy(() => import("@/components/landing/FeedbackSection"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const Footer = lazy(() => import("@/components/landing/Footer"));
+const FakeNotifications = lazy(() => import("@/components/landing/FakeNotifications"));
+const GuaranteeBanner = lazy(() => import("@/components/landing/GuaranteeBanner"));
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <FeaturesSection />
-      <ShowcaseSection />
-      <PricingSection />
-      <FeedbackSection />
-      <FAQSection />
-      <Footer />
-      <FakeNotifications />
-      <GuaranteeBanner />
+      <Suspense fallback={null}>
+        <FeaturesSection />
+        <ShowcaseSection />
+        <PricingSection />
+        <FeedbackSection />
+        <FAQSection />
+        <Footer />
+        <FakeNotifications />
+        <GuaranteeBanner />
+      </Suspense>
     </div>
   );
 };

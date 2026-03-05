@@ -15,4 +15,19 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor: React core (compartilhado por todos os chunks)
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          // Framer Motion isolado (maior dep)
+          "vendor-motion": ["framer-motion"],
+        },
+      },
+    },
+    // Melhor compressão
+    target: "es2020",
+    cssCodeSplit: true,
+  },
 });

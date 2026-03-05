@@ -43,18 +43,11 @@ const HeroSection = () => {
             variants={fadeUp}
             className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
           >
-            Pare de treinar{" "}
-            <span className="text-gradient-brand">no escuro.</span>
+            Esse é o ano de{" "}
+            <span className="text-gradient-brand">colocar o shape.</span>
           </motion.h1>
 
-          <motion.p
-            custom={2}
-            variants={fadeUp}
-            className="hidden sm:block text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
-          >
-            O ELEV usa inteligência artificial para montar seu plano alimentar, 
-            acompanhar seu treino e evoluir com você.
-          </motion.p>
+
           <motion.p
             custom={2}
             variants={fadeUp}
@@ -79,8 +72,16 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          <motion.div
+          <motion.p
             custom={4}
+            variants={fadeUp}
+            className="mt-10 text-sm text-muted-foreground/80 italic"
+          >
+            Todos os dias, mais pessoas decidem transformar seu corpo com o ELEV.
+          </motion.p>
+
+          <motion.div
+            custom={5}
             variants={fadeUp}
             className="mt-12 flex flex-wrap sm:flex-nowrap items-center justify-center gap-3 sm:gap-8 text-muted-foreground text-sm"
           >

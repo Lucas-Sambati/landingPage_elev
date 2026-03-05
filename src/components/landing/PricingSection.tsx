@@ -5,7 +5,7 @@ import { Check, Sparkles } from "lucide-react";
 const plans = [
   {
     name: "ELEV Start",
-    price: "R$ 37,00",
+    price: "R$ 38,00",
     period: "/mês",
     description: "Para quem está começando a treinar com estratégia.",
     features: [
@@ -22,7 +22,7 @@ const plans = [
     name: "ELEV Progress",
     price: "R$ 47,00",
     period: "/mês",
-    description: "Para quem quer resultados reais com acompanhamento IA.",
+    description: "Para quem quer realmente colocar o SHAPE em 2026.",
     features: [
       "Tudo do Start",
       "3 análises IA completas por semana",
@@ -80,8 +80,8 @@ const PricingSection = () => {
           {plans.map((plan, i) => (
             <div key={plan.name} className="relative">
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 px-3 py-1 rounded-full bg-background text-primary text-xs font-semibold glow-border-static">
-                  <Sparkles className="w-3 h-3" />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-background text-primary text-sm font-bold  text-glow">
+                  <Sparkles className="w-4 h-4" />
                   Mais popular
                 </div>
               )}
@@ -91,7 +91,7 @@ const PricingSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className={`rounded-2xl p-6 pt-8 flex flex-col h-full glass-card ${
-                  plan.highlighted ? 'glow-border-pulse' : 'glow-border-static'
+                  plan.highlighted ? 'glow-border-pulse scale-[1.03]' : 'glow-border-static'
                 }`}
               >
               <div className="mb-6">
