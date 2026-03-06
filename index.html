@@ -39,9 +39,18 @@
       content="https://iniciar.elevhq.com/og-image.png"
     />
 
-    <!-- DNS prefetch para CDNs de terceiros -->
+    <!-- Preconnect para CDNs críticos -->
+    <link rel="preconnect" href="https://cdn.utmify.com.br" crossorigin />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-    <link rel="dns-prefetch" href="https://cdn.utmify.com.br" />
+
+    <!-- Pixel de pageview NO HEAD — dispara o mais cedo possível -->
+    <script>
+      window.pixelId = "69a27d2873a647fcc4e1800d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
 
     <link
       rel="icon"
@@ -165,14 +174,7 @@
     </div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Pixel de pageview disparado imediatamente — não depende do React -->
-    <script>
-      window.pixelId = "69a27d2873a647fcc4e1800d";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
-    </script>
+    <!-- Pixel já carregado no <head> para disparar pageview mais cedo -->
     <!-- UTM tracking -->
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
