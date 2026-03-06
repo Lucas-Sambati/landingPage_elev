@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { m, AnimatePresence } from "framer-motion";
 
 const LOGO_URL =
   "https://res.cloudinary.com/dnyylurcv/image/upload/f_auto,q_auto,w_64/v1770233888/bbtntttjzaalbrdb9xrf.png";
@@ -9,6 +8,7 @@ const LOGO_URL =
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -59,32 +59,28 @@ const Navbar = () => {
         </button>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <m.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
-          >
-            <div className="container py-4 flex flex-col gap-4">
-              {links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-muted-foreground py-2"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <Button id="btn-comecar-nav-mobile" variant="hero" asChild>
-                <a href="#planos" onClick={() => setMobileOpen(false)}>Começar agora</a>
-              </Button>
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
+      <div
+        ref={menuRef}
+        className={`md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0 border-b-0"
+        }`}
+      >
+        <div className="container py-4 flex flex-col gap-4">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm text-muted-foreground py-2"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <Button id="btn-comecar-nav-mobile" variant="hero" asChild>
+            <a href="#planos" onClick={() => setMobileOpen(false)}>Começar agora</a>
+          </Button>
+        </div>
+      </div>
     </nav>
   );
 };

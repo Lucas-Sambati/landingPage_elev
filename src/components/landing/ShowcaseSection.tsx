@@ -29,21 +29,23 @@ const FlippingImage = ({
   const [flipPhase, setFlipPhase] = useState<"idle" | "out" | "in">("idle");
   const [preloaded, setPreloaded] = useState(false);
 
-  // Preload all images before starting the flip cycle
+  // Preload images one at a time to avoid bandwidth contention
   useEffect(() => {
     let cancelled = false;
-    const promises = images.map(
-      (src) =>
-        new Promise<void>((resolve) => {
+    // Load first image immediately, rest sequentially
+    const loadSequentially = async () => {
+      for (const src of images) {
+        if (cancelled) return;
+        await new Promise<void>((resolve) => {
           const img = new Image();
           img.onload = () => resolve();
           img.onerror = () => resolve();
           img.src = src;
-        })
-    );
-    Promise.all(promises).then(() => {
+        });
+      }
       if (!cancelled) setPreloaded(true);
-    });
+    };
+    loadSequentially();
     return () => { cancelled = true; };
   }, [images]);
 

@@ -184,6 +184,23 @@
     0%, 100% { box-shadow: 0 0 40px hsl(243 76% 59% / 0.45), 0 0 100px hsl(253 76% 59% / 0.2); }
     50% { box-shadow: 0 0 60px hsl(243 76% 59% / 0.65), 0 0 130px hsl(253 76% 59% / 0.35); }
   }
+
+  /* Hero fade-up animation — substitui framer-motion no above-the-fold */
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-fade-up {
+    opacity: 0;
+    animation: hero-fade-up 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
 }
 
 /* Mobile: stronger glow effects */
