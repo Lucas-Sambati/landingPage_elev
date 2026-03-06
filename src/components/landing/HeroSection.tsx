@@ -26,8 +26,8 @@ const HeroSection = () => {
             className="hero-fade-up text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
             style={{ animationDelay: "0.15s" }}
           >
-            Esse é o ano de{" "}
-            <span className="text-gradient-brand">colocar o shape.</span>
+            Pare de treinar{" "}
+            <span className="text-gradient-brand">no escuro.</span>
           </h1>
 
           <p
