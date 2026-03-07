@@ -15,8 +15,8 @@ const BelowFoldSections = () => (
     <Suspense fallback={null}>
       <ShowcaseSection />
       <FeaturesSection />
-      <PricingSection />
       <FeedbackSection />
+      <PricingSection />
       <FAQSection />
       <Footer />
       <FakeNotifications />
