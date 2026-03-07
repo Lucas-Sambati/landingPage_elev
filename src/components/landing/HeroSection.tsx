@@ -42,13 +42,9 @@ const HeroSection = () => {
             style={{ animationDelay: "0.45s" }}
           >
             <Button id="btn-conhecer-elev" variant="hero" size="xl" asChild>
-              <a href="#planos">
-                Começar agora
-                <ArrowRight className="w-5 h-5 ml-1" />
+              <a href="#showcase">
+                Como funciona
               </a>
-            </Button>
-            <Button id="btn-como-funciona" variant="hero-outline" size="xl" asChild>
-              <a href="#features">Como funciona</a>
             </Button>
           </div>
 

@@ -7,7 +7,7 @@ const plans = [
     name: "ELEV Start",
     price: "R$ 38,00",
     period: "/mês",
-    description: "Para quem está começando a treinar com estratégia.",
+    description: "Para quem está começando a treinar.",
     features: [
       "Controle de treinos",
       "1 análise IA limitada",
@@ -22,7 +22,7 @@ const plans = [
     name: "ELEV Progress",
     price: "R$ 47,00",
     period: "/mês",
-    description: "Para quem quer realmente colocar o SHAPE em 2026.",
+    description: "Para quem quer realmente colocar o SHAPE.",
     features: [
       "Tudo do Start",
       "3 análises IA completas por semana",
@@ -41,7 +41,7 @@ const plans = [
     name: "ELEV Elite",
     price: "R$ 89,00",
     period: "/mês",
-    description: "Para quem quer o máximo da plataforma e conteúdo premium.",
+    description: "Para quem quer o máximo da plataforma.",
     features: [
       "Tudo do Progress",
       "5 análises IA completas por semana",
@@ -72,7 +72,7 @@ const PricingSection = () => {
             <span className="text-gradient-brand">evolução</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Escolha o plano que combina com você. Cancele quando quiser.
+            Cancele quando quiser.
           </p>
         </m.div>
 
@@ -91,7 +91,7 @@ const PricingSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className={`rounded-2xl p-6 pt-8 flex flex-col h-full glass-card ${
-                  plan.highlighted ? 'glow-border-pulse scale-[1.03]' : 'glow-border-static'
+                  plan.highlighted ? 'glow-border-pulse scale-[1.03]' : 'border border-border'
                 }`}
               >
               <div className="mb-6">
@@ -111,6 +111,7 @@ const PricingSection = () => {
                     </span>
                   )}
                 </div>
+                <p className="text-xs text-muted-foreground/70 mt-1">Garantia de 7 dias</p>
               </div>
 
               <ul className="space-y-3 mb-8 flex-1">
@@ -134,7 +135,7 @@ const PricingSection = () => {
                 </a>
               </Button>
               <p className="text-xs text-center mt-3 text-muted-foreground/60">
-                · Ambiente Seguro · Garantia 7 Dias ·
+                · Ambiente Seguro ·
               </p>
               </m.div>
             </div>

@@ -13,9 +13,9 @@ const GuaranteeBanner = () => {
     setTimeout(() => setVisible(false), DISPLAY_DURATION);
   }, []);
 
-  // Aparece assim que o site carrega
+  // Aparece pela primeira vez após 1 minuto
   useEffect(() => {
-    const initialDelay = setTimeout(() => show(), 1500);
+    const initialDelay = setTimeout(() => show(), 60000);
     return () => clearTimeout(initialDelay);
   }, []);
 

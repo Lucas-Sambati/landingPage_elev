@@ -3,14 +3,14 @@ import { Dumbbell, Brain, Trophy, BookOpen } from "lucide-react";
 
 const features = [
   {
-    icon: Dumbbell,
-    title: "Controle de Treinos",
-    description: "Registre cargas, repetições e acompanhe sua evolução em tempo real com um layout intuitivo inspirado em planilhas.",
-  },
-  {
     icon: Brain,
     title: "Consultoria IA",
     description: "Receba plano de treino + alimentar personalizado com base nas suas métricas. Como ter um personal e nutricionista no bolso.",
+  },
+  {
+    icon: Dumbbell,
+    title: "Controle de Treinos",
+    description: "Registre cargas, repetições e acompanhe sua evolução em tempo real com um layout intuitivo inspirado em planilhas.",
   },
   {
     icon: Trophy,

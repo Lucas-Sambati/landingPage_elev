@@ -13,8 +13,8 @@ const GuaranteeBanner = lazy(() => import("./GuaranteeBanner"));
 const BelowFoldSections = () => (
   <LazyMotion features={domAnimation} strict>
     <Suspense fallback={null}>
-      <FeaturesSection />
       <ShowcaseSection />
+      <FeaturesSection />
       <PricingSection />
       <FeedbackSection />
       <FAQSection />

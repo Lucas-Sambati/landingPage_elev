@@ -49,9 +49,6 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button id="btn-comecar-nav" variant="hero" size="default" asChild>
-            <a href="#planos">Começar agora</a>
-          </Button>
         </div>
 
         <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -76,9 +73,6 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button id="btn-comecar-nav-mobile" variant="hero" asChild>
-            <a href="#planos" onClick={() => setMobileOpen(false)}>Começar agora</a>
-          </Button>
         </div>
       </div>
     </nav>

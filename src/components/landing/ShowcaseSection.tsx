@@ -2,15 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 import { m } from "framer-motion";
 import appMockup1 from "@/assets/newMockup/telaTreinos1.webp";
 import appMockup2 from "@/assets/newMockup/telaTreinos2.webp";
-import appMockup3 from "@/assets/newMockup/telaModulos.webp";
-import appMockup4 from "@/assets/newMockup/telaRanking.webp";
+import appMockup3 from "@/assets/newMockup/telaRanking.webp";
+import appMockup4 from "@/assets/newMockup/telaModulos.webp";
 import aiMockup1 from "@/assets/newMockup/consultoriaIA3.webp";
 import aiMockup2 from "@/assets/newMockup/consultoriaIA2.webp";
 import aiMockup3 from "@/assets/newMockup/consultoriaIA1.webp";
-import aiMockup4 from "@/assets/newMockup/telaPerfil2.webp";
 
 const appImages = [appMockup1, appMockup2, appMockup3, appMockup4];
-const aiImages = [aiMockup1, aiMockup2, aiMockup3, aiMockup4];
+const aiImages = [aiMockup1, aiMockup2, aiMockup3];
 
 const FlippingImage = ({
   images,
@@ -111,59 +110,15 @@ const FlippingImage = ({
 
 const ShowcaseSection = () => {
   return (
-    <section className="py-14 overflow-hidden">
+    <section id="showcase" className="py-14 overflow-hidden">
       <div className="container">
-        {/* Workout tracking showcase */}
+        {/* AI showcase */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-32">
           <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-          >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Treinos</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-              Acompanhe sua evolução em{" "}
-              <span className="text-gradient-brand">métricas reais</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Registre cada série, cada carga, cada repetição. O ELEV organiza tudo 
-              em um layout inteligente para que você veja exatamente onde está evoluindo 
-              — e onde precisa ajustar.
-            </p>
-            <div className="space-y-3">
-              {["Histórico completo de treinos", "Progressão de carga visual", "Layout inspirado em planilhas"].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  <span className="text-sm text-muted-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </m.div>
-          <m.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center"
-          >
-            <FlippingImage
-              images={appImages}
-              interval={3500}
-              alt="ELEV app - controle de treinos"
-              className="flex justify-center"
-            />
-          </m.div>
-        </div>
-
-        {/* AI showcase */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <m.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:order-2"
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-widest">Inteligência Artificial</span>
             <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
@@ -185,6 +140,50 @@ const ShowcaseSection = () => {
             </div>
           </m.div>
           <m.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center"
+          >
+            <FlippingImage
+              images={aiImages}
+              interval={3500}
+              alt="ELEV app - consultoria IA"
+              className="flex justify-center"
+            />
+          </m.div>
+        </div>
+
+        {/* Workout tracking showcase */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <m.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:order-2"
+          >
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Treinos</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
+              Acompanhe sua evolução em{" "}
+              <span className="text-gradient-brand">métricas reais</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Registre cada série, cada carga, cada repetição. O ELEV organiza tudo 
+              em um layout inteligente para que você veja exatamente onde está evoluindo 
+              — e onde precisa ajustar.
+            </p>
+            <div className="space-y-3">
+              {["Histórico completo de treinos", "Progressão de carga visual", "Layout inspirado em planilhas"].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </m.div>
+          <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -192,9 +191,9 @@ const ShowcaseSection = () => {
             className="flex justify-center md:order-1"
           >
             <FlippingImage
-              images={aiImages}
+              images={appImages}
               interval={3500}
-              alt="ELEV app - consultoria IA"
+              alt="ELEV app - controle de treinos"
               className="flex justify-center"
             />
           </m.div>

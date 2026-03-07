@@ -206,7 +206,7 @@
 /* Mobile: stronger glow effects */
 @media (max-width: 640px) {
   .shimmer-btn {
-    box-shadow: 0 0 28px hsl(243 76% 59% / 0.7), 0 0 60px hsl(253 76% 59% / 0.35) !important;
+    animation: btn-glow-pulse 2.5s ease-in-out infinite !important;
   }
 
   .glow-border-static {
