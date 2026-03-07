@@ -26,15 +26,15 @@ const HeroSection = () => {
             className="hero-fade-up text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
             style={{ animationDelay: "0.15s" }}
           >
-            Pare de treinar{" "}
-            <span className="text-gradient-brand">no escuro.</span>
+            Seu shape pode{" "}
+            <span className="text-gradient-brand">ir além.</span>
           </h1>
 
           <p
             className="hero-fade-up text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
             style={{ animationDelay: "0.3s" }}
           >
-            Tenha um robô personal + nutricionista no seu bolso.
+            Treino e dieta personalizados por IA que se adaptam à sua rotina — pra você evoluir toda semana.
           </p>
 
           <div
@@ -43,7 +43,7 @@ const HeroSection = () => {
           >
             <Button id="btn-conhecer-elev" variant="hero" size="xl" asChild>
               <a href="#showcase">
-                Como funciona
+                Descubra como <ArrowRight className="ml-1 w-4 h-4" />
               </a>
             </Button>
           </div>
@@ -52,7 +52,7 @@ const HeroSection = () => {
             className="hero-fade-up mt-10 text-sm text-muted-foreground/80 italic"
             style={{ animationDelay: "0.6s" }}
           >
-            Todos os dias, mais pessoas decidem transformar seu corpo com o ELEV.
+            Centenas de pessoas já estão transformando seu corpo com o ELEV.
           </p>
 
           <div
@@ -61,11 +61,11 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-success" />
-              <span>IA integrada</span>
+              <span>Personalizado por IA</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-success" />
-              <span>Controle de treinos</span>
+              <span>Resultados reais</span>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto justify-center mt-2 sm:mt-0">
               <div className="w-2 h-2 rounded-full bg-success" />
