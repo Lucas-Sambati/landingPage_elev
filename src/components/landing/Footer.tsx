@@ -1,5 +1,5 @@
 const LOGO_URL =
-  "https://res.cloudinary.com/dnyylurcv/image/upload/v1773429220/elev_logo_jh8geu.png";
+  "/img/elev_logo.webp";
 
 const Footer = () => {
   return (
