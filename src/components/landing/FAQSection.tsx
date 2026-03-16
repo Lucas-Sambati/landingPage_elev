@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -37,11 +38,17 @@ const faqs = [
     answer:
       "A maioria dos apps só controla séries e repetições. O ELEV integra controle de treino + consultoria alimentar com IA + gamificação + comunidade em uma única experiência. É como ter um personal, um nutricionista e uma comunidade motivadora no seu bolso — por uma fração do custo.",
   },
+  {
+    question: "Vale mais do que uma mensalidade de academia?",
+    answer:
+      "Academia te dá espaço para treinar. O ELEV te diz o que fazer, quanto comer e por que você estava estagnado. Treino personalizado, plano alimentar e análise inteligente de IA — por um valor igual ou menor ao de muitas academias. A diferença é: academia é uma estrutura. O ELEV é um sistema.",
+  },
 ];
 
 const FAQSection = () => {
   return (
     <section id="faq" className="py-14 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-primary/40" />
       <div className="container relative z-10 max-w-3xl">
         <m.div
           className="text-center mb-16"
@@ -83,6 +90,25 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </m.div>
+
+        <m.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <p className="text-muted-foreground text-sm mb-4">
+            Ainda em dúvida? Fala com a gente no Instagram.
+          </p>
+          <Button
+            size="lg"
+            className="shimmer-btn font-bold px-8"
+            asChild
+          >
+            <a href="https://www.instagram.com/elev.hq" target="_blank" rel="noopener noreferrer">@elev.hq no Instagram →</a>
+          </Button>
         </m.div>
       </div>
     </section>

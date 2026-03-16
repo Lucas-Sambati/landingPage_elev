@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const LOGO_URL =
-  "https://res.cloudinary.com/dnyylurcv/image/upload/f_auto,q_auto,w_64/v1770233888/bbtntttjzaalbrdb9xrf.png";
+  "https://res.cloudinary.com/dnyylurcv/image/upload/v1773429220/elev_logo_jh8geu.png";
 
 const NotFound = () => {
   useEffect(() => {

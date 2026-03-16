@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elev | Eleve seu resultado</title>
 
+    <!-- Preload LCP images — browser starts downloading before JS executes -->
+    <link rel="preload" as="image" href="/img/hero-bg.webp" type="image/webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/nosso_personagem_apontando_sem_background.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
     <!-- Google Fonts: preconnect + non-blocking load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -183,33 +193,5 @@
       async
       defer
     ></script>
-    <script>
-      (function () {
-        var boundIds = {};
-        var targetIds = [
-          "btn-conhecer-elev",
-          "btn-como-funciona",
-          "btn-comecar-nav",
-          "btn-comecar-nav-mobile",
-        ];
-        var observer = new MutationObserver(function () {
-          targetIds.forEach(function (id) {
-            var el = document.getElementById(id);
-            if (el && !boundIds[id]) {
-              boundIds[id] = true;
-              el.addEventListener("click", function () {
-                if (window.Tracker) {
-                  window.Tracker.track("ViewContent");
-                }
-              });
-            }
-          });
-        });
-        observer.observe(document.documentElement, {
-          childList: true,
-          subtree: true,
-        });
-      })();
-    </script>
   </body>
 </html>

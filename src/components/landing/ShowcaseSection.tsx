@@ -1,15 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { m } from "framer-motion";
+import { Check } from "lucide-react";
 import appMockup1 from "@/assets/newMockup/telaTreinos1.webp";
 import appMockup2 from "@/assets/newMockup/telaTreinos2.webp";
-import appMockup3 from "@/assets/newMockup/telaRanking.webp";
-import appMockup4 from "@/assets/newMockup/telaModulos.webp";
-import aiMockup1 from "@/assets/newMockup/consultoriaIA3.webp";
-import aiMockup2 from "@/assets/newMockup/consultoriaIA2.webp";
-import aiMockup3 from "@/assets/newMockup/consultoriaIA1.webp";
+import communityMockup1 from "@/assets/newMockup/telaPerfil.webp";
+import communityMockup2 from "@/assets/newMockup/telaHome.webp";
+import aiMockup1 from "@/assets/newMockup/telaConsultoria3.webp";
+import aiMockup2 from "@/assets/newMockup/telaConsultoria2.webp";
+import aiMockup3 from "@/assets/newMockup/telaConsultoria1.webp";
 
-const appImages = [appMockup1, appMockup2, appMockup3, appMockup4];
+const appImages = [appMockup1, appMockup2];
 const aiImages = [aiMockup1, aiMockup2, aiMockup3];
+const communityImages = [communityMockup1, communityMockup2];
 
 const FlippingImage = ({
   images,
@@ -101,7 +103,7 @@ const FlippingImage = ({
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="w-72 animate-float drop-shadow-2xl rounded-2xl glow-border-static"
+          className="w-72 animate-float drop-shadow-2xl rounded-2xl"
         />
       </div>
     </div>
@@ -109,31 +111,56 @@ const FlippingImage = ({
 };
 
 const ShowcaseSection = () => {
+  const bulletStyle = "flex items-center gap-3";
+  const dotStyle = "w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center flex-shrink-0";
+
   return (
-    <section id="showcase" className="py-14 overflow-hidden">
+    <section id="showcase" className="py-16 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-primary/40" />
       <div className="container">
-        {/* AI showcase */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-32">
+
+        {/* Título da seção */}
+        <m.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest">O App</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3">
+            Tudo em um lugar.{" "}
+            <span className="text-gradient-brand">Tudo sob controle.</span>
+          </h2>
+        </m.div>
+
+        {/* Consultoria IA */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16 sm:mb-24">
           <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Inteligência Artificial</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-              Seu personal e nutricionista{" "}
-              <span className="text-gradient-brand">no bolso</span>
-            </h2>
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Consultoria com IA</span>
+            <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
+              Um personal e nutricionista{" "}
+              <span className="text-gradient-brand">no seu bolso</span>
+            </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Envie suas métricas e receba de volta: feedback detalhado, plano de treino 
-              personalizado e plano alimentar. A IA analisa seus dados, ajusta sua 
-              estratégia e evolui com você.
+              Envie suas métricas e receba um{" "}
+              <strong className="text-foreground/90">treino e plano alimentar personalizados</strong>. Não é template — é a IA analisando você.
             </p>
             <div className="space-y-3">
-              {["Plano de treino personalizado", "Plano alimentar sob medida", "Feedback baseado em dados reais"].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              {[
+                "Treino gerado para o seu nível e objetivo",
+                "Plano alimentar estratégico",
+                "Feedback sobre o seu progresso",
+                "Análise com foto do físico (opcional)",
+              ].map((item) => (
+                <div key={item} className={bulletStyle}>
+                  <div className={dotStyle}>
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </div>
               ))}
@@ -155,8 +182,8 @@ const ShowcaseSection = () => {
           </m.div>
         </div>
 
-        {/* Workout tracking showcase */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Controle de Treinos */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16 sm:mb-24">
           <m.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -164,20 +191,25 @@ const ShowcaseSection = () => {
             transition={{ duration: 0.6 }}
             className="md:order-2"
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Treinos</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-              Acompanhe sua evolução em{" "}
-              <span className="text-gradient-brand">métricas reais</span>
-            </h2>
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Controle de Treinos</span>
+            <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
+              Cada carga, cada rep.{" "}
+              <span className="text-gradient-brand">Tudo registrado.</span>
+            </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Registre cada série, cada carga, cada repetição. O ELEV organiza tudo 
-              em um layout inteligente para que você veja exatamente onde está evoluindo 
-              — e onde precisa ajustar.
+              Veja exatamente onde evoluiu — cargas, repetições e histórico completo em um layout de planilha profissional.
             </p>
             <div className="space-y-3">
-              {["Histórico completo de treinos", "Progressão de carga visual", "Layout inspirado em planilhas"].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              {[
+                "Histórico de todas as sessões",
+                "Progressão de carga semana a semana",
+                "Métricas reais de evolução",
+                "Layout intuitivo estilo planilha",
+              ].map((item) => (
+                <div key={item} className={bulletStyle}>
+                  <div className={dotStyle}>
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </div>
               ))}
@@ -198,6 +230,60 @@ const ShowcaseSection = () => {
             />
           </m.div>
         </div>
+
+        {/* Comunidade e Perfil */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-0">
+          <m.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Comunidade & Perfil</span>
+            <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
+              Você não está{" "}
+              <span className="text-gradient-brand">treinando sozinho.</span>
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Ranking semanal, perfil com badges e uma comunidade que puxa você pra cima.
+            </p>
+            <div className="space-y-3">
+              {[
+                "Ranking semanal por pontos",
+                "Feed de atividades da comunidade",
+                "Perfil público com conquistas",
+                "Conteúdos exclusivos para Elite",
+              ].map((item) => (
+                <div key={item} className={bulletStyle}>
+                  <div className={dotStyle}>
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </m.div>
+          <m.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center"
+          >
+            <FlippingImage
+              images={communityImages}
+              interval={3500}
+              alt="ELEV app - comunidade e ranking"
+              className="flex justify-center"
+            />
+          </m.div>
+        </div>
+
+      </div>
+      <div className="text-center mt-12">
+        <a href="#gamification" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors">
+          Ver como o ELEV te mantém motivado ↓
+        </a>
       </div>
     </section>
   );

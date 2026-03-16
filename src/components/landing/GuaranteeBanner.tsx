@@ -3,7 +3,7 @@ import { m, AnimatePresence } from "framer-motion";
 import { ShieldCheck, X } from "lucide-react";
 
 const DISPLAY_DURATION = 6000; // tempo visível (ms)
-const REAPPEAR_INTERVAL = 25000; // intervalo entre reaparições (ms)
+const REAPPEAR_INTERVAL = 15000; // intervalo entre reaparições (ms)
 
 const GuaranteeBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -13,9 +13,9 @@ const GuaranteeBanner = () => {
     setTimeout(() => setVisible(false), DISPLAY_DURATION);
   }, []);
 
-  // Aparece pela primeira vez após 1 minuto
+  // Aparece pela primeira vez após 20s
   useEffect(() => {
-    const initialDelay = setTimeout(() => show(), 60000);
+    const initialDelay = setTimeout(() => show(), 20000);
     return () => clearTimeout(initialDelay);
   }, []);
 
