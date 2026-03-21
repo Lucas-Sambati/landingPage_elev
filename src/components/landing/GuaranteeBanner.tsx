@@ -5,11 +5,21 @@ import { ShieldCheck, X } from "lucide-react";
 const DISPLAY_DURATION = 6000; // tempo visível (ms)
 const REAPPEAR_INTERVAL = 15000; // intervalo entre reaparições (ms)
 
+const messages = [
+  { text: "Garantia de 7 dias", sub: "Experimente o ELEV sem medo" },
+  {
+    text: "🔥 Preço de lançamento",
+    sub: "Pode ser reajustado a qualquer momento",
+  },
+];
+
 const GuaranteeBanner = () => {
   const [visible, setVisible] = useState(false);
+  const [msgIndex, setMsgIndex] = useState(0);
 
   const show = useCallback(() => {
     setVisible(true);
+    setMsgIndex((prev) => (prev + 1) % messages.length);
     setTimeout(() => setVisible(false), DISPLAY_DURATION);
   }, []);
 
@@ -55,9 +65,9 @@ const GuaranteeBanner = () => {
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
             </m.div>
             <p className="text-xs text-white leading-snug">
-              <span className="font-bold">Garantia de 7 dias</span>
-              {" · "}
-              Experimente o ELEV sem medo
+              <span className="font-bold">{messages[msgIndex].text}</span>
+              {" \u00b7 "}
+              {messages[msgIndex].sub}
             </p>
             <button
               onClick={() => setVisible(false)}

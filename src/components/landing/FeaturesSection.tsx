@@ -2,14 +2,14 @@ import { m } from "framer-motion";
 import { X, Check } from "lucide-react";
 
 const rows = [
-  { feature: "Controle de treinos",             others: true,   elev: true  },
-  { feature: "Plano de treino personalizado",    others: false,  elev: true  },
-  { feature: "Plano alimentar estratégico",      others: false,  elev: true  },
-  { feature: "Consultoria com IA",               others: false,  elev: true  },
-  { feature: "Envio de foto para análise",        others: false,  elev: true  },
-  { feature: "Gamificação e ranking",            others: false,  elev: true  },
-  { feature: "Comunidade ativa",                 others: false,  elev: true  },
-  { feature: "Conteúdo educativo exclusivo",     others: false,  elev: true  },
+  { feature: "Controle de treinos", others: true, elev: true },
+  { feature: "Plano de treino personalizado", others: false, elev: true },
+  { feature: "Plano alimentar estratégico", others: false, elev: true },
+  { feature: "Consultoria com IA", others: false, elev: true },
+  { feature: "Envio de foto para análise", others: false, elev: true },
+  { feature: "Gamificação e ranking", others: false, elev: true },
+  { feature: "Comunidade ativa", others: false, elev: true },
+  { feature: "Conteúdo educativo exclusivo", others: false, elev: true },
 ];
 
 const FeaturesSection = () => {
@@ -25,13 +25,19 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest">Comparação</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+            Comparação
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3">
             Por que o ELEV{" "}
-            <span className="text-gradient-brand">onde os outros falham?</span>
+            <span className="text-gradient-brand">
+              funciona onde os outros falham?
+            </span>
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto text-sm sm:text-base">
-            A maioria dos apps de treino resolve só uma parte do problema. O ELEV resolve tudo.
+          <p className="text-muted-foreground max-w-lg mx-auto text-sm sm:text-base">
+            Apps de treino controlam séries. Nutricionistas custam R$200 por
+            consulta. Personais montam um PDF e somem. O ELEV integra tudo — num
+            único lugar.
           </p>
         </m.div>
 
@@ -44,9 +50,15 @@ const FeaturesSection = () => {
         >
           {/* Header */}
           <div className="grid grid-cols-3 mb-3 px-4">
-            <span className="col-span-1 text-xs text-muted-foreground uppercase tracking-wide">Recurso</span>
-            <span className="text-center text-xs text-muted-foreground uppercase tracking-wide">Outros apps</span>
-            <span className="text-center text-xs font-bold text-primary uppercase tracking-wide">ELEV</span>
+            <span className="col-span-1 text-xs text-muted-foreground uppercase tracking-wide">
+              Recurso
+            </span>
+            <span className="text-center text-xs text-muted-foreground uppercase tracking-wide">
+              Outros apps
+            </span>
+            <span className="text-center text-xs font-bold text-primary uppercase tracking-wide">
+              ELEV
+            </span>
           </div>
 
           <div className="glass-card rounded-2xl border border-border/50 divide-y divide-border/40 overflow-hidden">
@@ -59,7 +71,9 @@ const FeaturesSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06, duration: 0.3 }}
               >
-                <span className="text-sm text-muted-foreground col-span-1 pr-2 leading-snug">{row.feature}</span>
+                <span className="text-sm text-muted-foreground col-span-1 pr-2 leading-snug">
+                  {row.feature}
+                </span>
                 <div className="flex justify-center">
                   {row.others ? (
                     <Check className="w-4 h-4 text-muted-foreground/40" />
@@ -76,8 +90,11 @@ const FeaturesSection = () => {
         </m.div>
 
         <div className="mt-10 text-center">
-          <a href="#usuarios" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors">
-            Ver o que dizem os usuários ↓
+          <a
+            href="#historia"
+            className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            Conhecer quem criou o ELEV ↓
           </a>
         </div>
       </div>

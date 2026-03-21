@@ -67,13 +67,16 @@ const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest">Planos</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+            Planos
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3">
             Escolha seu{" "}
             <span className="text-gradient-brand">nível de evolução</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto text-sm sm:text-base">
-            Todos os planos têm garantia de 7 dias. Cancele quando quiser, sem burocracia.
+            Experimente por 7 dias. Se não sentir a diferença, devolvemos seu
+            dinheiro. Sem perguntas.
           </p>
         </m.div>
 
@@ -86,17 +89,37 @@ const PricingSection = () => {
           transition={{ delay: 0.1 }}
         >
           <div className="space-y-0.5">
-            <p className="text-xs text-muted-foreground uppercase tracking-wide">Personal trainer</p>
-            <p className="text-xl font-bold text-destructive/80">R$ 150+<span className="text-sm font-normal">/hora</span></p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wide">
+              Personal trainer
+            </p>
+            <p className="text-xl font-bold text-destructive/80">
+              R$ 150+<span className="text-sm font-normal">/hora</span>
+            </p>
           </div>
           <div className="space-y-0.5">
-            <p className="text-xs text-muted-foreground uppercase tracking-wide">Nutricionista</p>
-            <p className="text-xl font-bold text-destructive/80">R$ 200+<span className="text-sm font-normal">/consulta</span></p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wide">
+              Nutricionista
+            </p>
+            <p className="text-xl font-bold text-destructive/80">
+              R$ 200+<span className="text-sm font-normal">/consulta</span>
+            </p>
           </div>
           <div className="space-y-0.5 sm:border-l sm:border-border/50 sm:pl-4">
-            <p className="text-xs text-primary uppercase tracking-wide font-semibold">ELEV Progress</p>
-            <p className="text-xl font-bold text-gradient-brand">R$ 47<span className="text-sm font-normal text-muted-foreground">/mês</span></p>
-            <p className="text-[11px] text-muted-foreground">(≈ R$ 1,57 por dia)</p>
+            <p className="text-xs text-primary uppercase tracking-wide font-semibold">
+              ELEV Progress
+            </p>
+            <p className="text-xl font-bold text-gradient-brand">
+              R$ 47
+              <span className="text-sm font-normal text-muted-foreground">
+                /mês
+              </span>
+            </p>
+            <p className="text-[11px] text-muted-foreground">
+              (≈ R$ 1,57 por dia)
+            </p>
+            <p className="text-[11px] text-foreground/70 font-medium mt-0.5">
+              Menos que um café. Mais que um personal.
+            </p>
           </div>
         </m.div>
 
@@ -115,21 +138,29 @@ const PricingSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className={`rounded-2xl p-6 pt-8 flex flex-col h-full glass-card ${
-                  plan.highlighted ? "shimmer-card glow-border-pulse scale-[1.03]" : "border border-border"
+                  plan.highlighted
+                    ? "shimmer-card glow-border-pulse scale-[1.03]"
+                    : "border border-border"
                 }`}
               >
                 <div className="mb-6">
-                  <h3 className={`text-lg font-bold mb-1 ${plan.highlighted ? "text-gradient-brand" : ""}`}>
+                  <h3
+                    className={`text-lg font-bold mb-1 ${plan.highlighted ? "text-gradient-brand" : ""}`}
+                  >
                     {plan.name}
                   </h3>
                   <p className="text-sm mb-4 text-muted-foreground">
                     {plan.description}
                   </p>
                   <div className="flex items-baseline gap-1">
-                    <span className={`text-4xl font-bold ${plan.highlighted ? "text-gradient-brand" : ""}`}>
+                    <span
+                      className={`text-4xl font-bold ${plan.highlighted ? "text-gradient-brand" : ""}`}
+                    >
                       {plan.price}
                     </span>
-                    <span className="text-sm text-muted-foreground">{plan.period}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {plan.period}
+                    </span>
                   </div>
                   {plan.highlighted && (
                     <p className="text-[11px] text-amber-400/90 font-semibold mt-1.5 flex items-center gap-1">
@@ -139,18 +170,32 @@ const PricingSection = () => {
                   )}
                 </div>
 
-                <ul className="space-y-3 mb-8 flex-1">
+                <ul className="space-y-3 mb-4 flex-1">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5">
                       <Check
                         className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
-                          plan.highlighted ? "text-primary text-glow" : "text-success"
+                          plan.highlighted
+                            ? "text-primary text-glow"
+                            : "text-success"
                         }`}
                       />
-                      <span className="text-sm text-muted-foreground leading-snug">{feature}</span>
+                      <span className="text-sm text-muted-foreground leading-snug">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
+
+                {plan.highlighted && (
+                  <div className="mb-6 px-3 py-2.5 rounded-lg bg-amber-400/10 border border-amber-400/20">
+                    <p className="text-xs text-amber-400/90 font-semibold flex items-center gap-1.5">
+                      <span>🎁</span>
+                      Bônus de lançamento: Guia "Os 7 erros que travam seu
+                      shape" — exclusivo para assinantes.
+                    </p>
+                  </div>
+                )}
 
                 <Button variant="hero" size="lg" className="w-full" asChild>
                   <a href={plan.href} target="_blank" rel="noopener noreferrer">
@@ -173,7 +218,8 @@ const PricingSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          Em dúvida? O <strong className="text-foreground/80">Progress</strong> é o equilíbrio perfeito entre custo e resultado.
+          Em dúvida? O <strong className="text-foreground/80">Progress</strong>{" "}
+          é o equilíbrio perfeito entre custo e resultado.
         </m.p>
 
         <m.p
@@ -183,7 +229,8 @@ const PricingSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          Quem assina agora mantém o valor mesmo quando os preços forem reajustados.
+          Quem assina agora mantém o valor mesmo quando os preços forem
+          reajustados.
         </m.p>
       </div>
     </section>

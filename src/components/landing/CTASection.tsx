@@ -19,8 +19,10 @@ const CTASection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold mb-5 leading-tight">
-            Hoje você decide:{" "}
-            <span className="text-gradient-brand">muda ou deixa igual?</span>
+            Dois caminhos.{" "}
+            <span className="text-gradient-brand">
+              Só um muda o que você vê no espelho.
+            </span>
           </h2>
 
           <div className="flex justify-center my-6">
@@ -36,10 +38,28 @@ const CTASection = () => {
             </div>
           </div>
 
-          <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-            O físico que você quer não vai aparecer sozinho. Mas com o sistema certo,
-            ele para de parecer impossível e começa a parecer inevitável.
+          <p className="text-muted-foreground text-base sm:text-lg mb-6 max-w-lg mx-auto leading-relaxed">
+            Daqui a 6 meses, você pode estar com o mesmo físico, a mesma
+            frustração e mais um app abandonado. Ou pode estar olhando no
+            espelho e, pela primeira vez,{" "}
+            <strong className="text-foreground/90">gostando do que vê.</strong>{" "}
+            A diferença entre os dois cenários é uma decisão — e ela é agora.
           </p>
+
+          {/* Bloco de urgência */}
+          <div className="glass-card rounded-xl border border-primary/20 px-5 py-3 mb-8 inline-flex flex-col sm:flex-row items-center gap-2 text-sm">
+            <span className="text-primary font-semibold">
+              ⚡ Preço de lançamento
+            </span>
+            <span className="hidden sm:inline text-border">·</span>
+            <span className="text-muted-foreground">
+              Mais de 1.200 pessoas já estão dentro
+            </span>
+            <span className="hidden sm:inline text-border">·</span>
+            <span className="text-muted-foreground">
+              Quem assina agora mantém o valor
+            </span>
+          </div>
 
           <Button variant="hero" size="xl" asChild>
             <a href="#planos">

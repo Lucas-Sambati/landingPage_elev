@@ -50,24 +50,28 @@ const HeroSection = () => {
               style={{ animationDelay: "0s" }}
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Treinador de IA para quem quer resultado de verdade
+              O 1° app que integra treino, dieta e IA em um único sistema
             </div>
 
             <h1
               className="hero-fade-up text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-5"
               style={{ animationDelay: "0.15s" }}
             >
-              Quantas vezes você{" "}
-              <span className="text-gradient-brand">começou... e parou?</span>
+              O sistema que faz você{" "}
+              <span className="text-gradient-brand">nunca mais desistir</span>{" "}
+              do seu shape
             </h1>
 
             <p
               className="hero-fade-up text-base sm:text-lg text-muted-foreground max-w-md mb-8 leading-relaxed"
               style={{ animationDelay: "0.3s" }}
             >
-              Você não parou por falta de vontade.{" "}
-              <strong className="text-foreground/90">Parou porque estava usando o sistema errado.</strong>{" "}
-              O ELEV muda isso — de vez.
+              Treino personalizado, plano alimentar com IA e um sistema de
+              gamificação que{" "}
+              <strong className="text-foreground/90">
+                torna impossível desistir.
+              </strong>{" "}
+              Tudo no seu bolso, por menos de R$ 1,57/dia.
             </p>
 
             <div
@@ -78,6 +82,14 @@ const HeroSection = () => {
                 <a href="#dor">
                   Ver como funciona <ArrowRight className="ml-1 w-5 h-5" />
                 </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-border/60 text-muted-foreground hover:text-foreground"
+                asChild
+              >
+                <a href="#planos">Ver planos e preços</a>
               </Button>
             </div>
 

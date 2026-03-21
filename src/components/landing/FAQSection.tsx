@@ -9,6 +9,16 @@ import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
+    question: "E se eu não tiver tempo?",
+    answer:
+      "O ELEV não pede 2 horas do seu dia. Registrar um treino leva segundos. A consultoria de IA entrega tudo pronto — treino e dieta — sem que você precise pesquisar nada. Quem não tem tempo é quem mais precisa de um sistema que organiza tudo por você.",
+  },
+  {
+    question: "Será que funciona pra quem já tentou de tudo?",
+    answer:
+      "Principalmente pra quem já tentou de tudo. Se você já usou apps, planilhas e personal e nada durou, o problema nunca foi você — foi a abordagem fragmentada. O ELEV é o primeiro sistema que integra tudo: treino, dieta, acompanhamento e motivação. É diferente porque resolve o problema inteiro, não só um pedaço.",
+  },
+  {
     question: "A IA realmente monta um plano alimentar personalizado?",
     answer:
       "Sim. A cada consultoria, a IA analisa suas métricas, treinos recentes, objetivo e até foto do físico (opcional) para montar um plano alimentar semanal sob medida. Não é um template genérico — é um plano que evolui junto com o seu progresso. Para condições médicas específicas, sempre recomendamos acompanhamento profissional.",
@@ -60,8 +70,7 @@ const FAQSection = () => {
             FAQ
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-            Perguntas{" "}
-            <span className="text-gradient-brand">frequentes</span>
+            Perguntas <span className="text-gradient-brand">frequentes</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             Tire suas dúvidas sobre o ELEV antes de começar.
@@ -102,12 +111,14 @@ const FAQSection = () => {
           <p className="text-muted-foreground text-sm mb-4">
             Ainda em dúvida? Fala com a gente no Instagram.
           </p>
-          <Button
-            size="lg"
-            className="shimmer-btn font-bold px-8"
-            asChild
-          >
-            <a href="https://www.instagram.com/elev.hq" target="_blank" rel="noopener noreferrer">@elev.hq no Instagram →</a>
+          <Button size="lg" className="shimmer-btn font-bold px-8" asChild>
+            <a
+              href="https://www.instagram.com/elev.hq"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @elev.hq no Instagram →
+            </a>
           </Button>
         </m.div>
       </div>

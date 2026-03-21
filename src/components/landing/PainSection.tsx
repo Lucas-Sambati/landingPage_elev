@@ -24,8 +24,8 @@ const PainSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Você se reconhece{" "}
-              <span className="text-gradient-brand">nisso?</span>
+              Se isso parece familiar...{" "}
+              <span className="text-gradient-brand">não é coincidência.</span>
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg">
               Antes de continuar, leia isso com atenção.
@@ -56,6 +56,30 @@ const PainSection = () => {
             ))}
           </m.div>
 
+          {/* Inimigo Comum */}
+          <m.div
+            className="mt-10 glass-card rounded-2xl p-6 sm:p-8 border border-primary/20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gradient-brand">
+              A culpa não é sua.
+            </h3>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Você tentou apps que só contam repetição. Tentou dietas genéricas
+              da internet. Talvez até pagou um personal que montou uma planilha
+              e sumiu.{" "}
+              <strong className="text-foreground/90">
+                E sabe por quê nada funcionou?
+              </strong>{" "}
+              Porque nenhum deles resolve o problema de verdade. Eles te dão uma
+              ferramenta isolada — mas consistência não vem de uma ferramenta.
+              Vem de um sistema. E até agora, esse sistema não existia.
+            </p>
+          </m.div>
+
           <m.div
             className="mt-8 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -67,10 +91,13 @@ const PainSection = () => {
               Se você marcou qualquer um desses...
             </p>
             <p className="text-xl sm:text-2xl font-bold mt-2 text-gradient-brand">
-              o ELEV foi feito exatamente pra você.
+              O ELEV foi construído pra acabar com esse ciclo — de vez.
             </p>
             <div className="mt-8">
-              <a href="#showcase" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors">
+              <a
+                href="#showcase"
+                className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+              >
                 Conhecer o ELEV ↓
               </a>
             </div>

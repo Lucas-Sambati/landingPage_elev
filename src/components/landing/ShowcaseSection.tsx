@@ -47,7 +47,9 @@ const FlippingImage = ({
       if (!cancelled) setPreloaded(true);
     };
     loadSequentially();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [images]);
 
   const doFlip = useCallback(() => {
@@ -77,9 +79,12 @@ const FlippingImage = ({
 
   const getTransform = () => {
     switch (flipPhase) {
-      case "out": return "rotateY(90deg)";
-      case "in": return "rotateY(-90deg)";
-      case "idle": return "rotateY(0deg)";
+      case "out":
+        return "rotateY(90deg)";
+      case "in":
+        return "rotateY(-90deg)";
+      case "idle":
+        return "rotateY(0deg)";
     }
   };
 
@@ -112,13 +117,13 @@ const FlippingImage = ({
 
 const ShowcaseSection = () => {
   const bulletStyle = "flex items-center gap-3";
-  const dotStyle = "w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center flex-shrink-0";
+  const dotStyle =
+    "w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center flex-shrink-0";
 
   return (
     <section id="showcase" className="py-16 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-primary/40" />
       <div className="container">
-
         {/* Título da seção */}
         <m.div
           className="text-center mb-20"
@@ -126,7 +131,9 @@ const ShowcaseSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest">O App</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+            O App
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3">
             Tudo em um lugar.{" "}
             <span className="text-gradient-brand">Tudo sob controle.</span>
@@ -141,21 +148,28 @@ const ShowcaseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Consultoria com IA</span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+              Consultoria com IA
+            </span>
             <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
               Um personal e nutricionista{" "}
               <span className="text-gradient-brand">no seu bolso</span>
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Envie suas métricas e receba um{" "}
-              <strong className="text-foreground/90">treino e plano alimentar personalizados</strong>. Não é template — é a IA analisando você.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Imagine abrir o app no domingo, enviar suas métricas da semana e,
+              em minutos, receber um treino ajustado pro seu nível atual e um
+              plano alimentar que realmente faz sentido pra sua rotina. Sem
+              pesquisar no Google. Sem adivinhar.{" "}
+              <strong className="text-foreground/90">
+                A IA olha pra VOCÊ — e te diz exatamente o que fazer.
+              </strong>
             </p>
             <div className="space-y-3">
               {[
-                "Treino gerado para o seu nível e objetivo",
-                "Plano alimentar estratégico",
-                "Feedback sobre o seu progresso",
-                "Análise com foto do físico (opcional)",
+                "Um treino que evolui junto com você — não um template",
+                "Saber exatamente o que comer, sem neurose",
+                "Ver onde você travou e como destravar",
+                "Envie uma foto e receba feedback visual real",
               ].map((item) => (
                 <div key={item} className={bulletStyle}>
                   <div className={dotStyle}>
@@ -191,20 +205,28 @@ const ShowcaseSection = () => {
             transition={{ duration: 0.6 }}
             className="md:order-2"
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Controle de Treinos</span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+              Controle de Treinos
+            </span>
             <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
               Cada carga, cada rep.{" "}
               <span className="text-gradient-brand">Tudo registrado.</span>
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Veja exatamente onde evoluiu — cargas, repetições e histórico completo em um layout de planilha profissional.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Você terminou o treino. Mas evoluiu? Com o ELEV, essa dúvida não
+              existe.{" "}
+              <strong className="text-foreground/90">
+                Cada carga, cada repetição fica registrada
+              </strong>{" "}
+              — e você vê, semana após semana, o gráfico subindo. É a prova
+              visual de que o esforço está valendo.
             </p>
             <div className="space-y-3">
               {[
-                "Histórico de todas as sessões",
-                "Progressão de carga semana a semana",
-                "Métricas reais de evolução",
-                "Layout intuitivo estilo planilha",
+                "Nunca mais perguntar 'qual carga eu usei?'",
+                "Ver a evolução subindo no gráfico dá outro ânimo",
+                "Números reais, não achismo",
+                "Simples como uma planilha, poderoso como um sistema",
               ].map((item) => (
                 <div key={item} className={bulletStyle}>
                   <div className={dotStyle}>
@@ -239,20 +261,27 @@ const ShowcaseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-widest">Comunidade & Perfil</span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+              Comunidade & Perfil
+            </span>
             <h3 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
               Você não está{" "}
               <span className="text-gradient-brand">treinando sozinho.</span>
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Ranking semanal, perfil com badges e uma comunidade que puxa você pra cima.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Quando ninguém sabe que você faltou, faltar é fácil. No ELEV,{" "}
+              <strong className="text-foreground/90">
+                a comunidade vê sua evolução — e você vê a deles.
+              </strong>{" "}
+              É aquele empurrão silencioso que te faz levantar do sofá mesmo nos
+              dias difíceis.
             </p>
             <div className="space-y-3">
               {[
-                "Ranking semanal por pontos",
-                "Feed de atividades da comunidade",
-                "Perfil público com conquistas",
-                "Conteúdos exclusivos para Elite",
+                "Competir com a comunidade mantém o fogo aceso",
+                "Ver outros treinando te faz querer treinar também",
+                "Suas badges contam sua história de evolução",
+                "Conteúdo avançado pra quem quer ir além",
               ].map((item) => (
                 <div key={item} className={bulletStyle}>
                   <div className={dotStyle}>
@@ -278,10 +307,12 @@ const ShowcaseSection = () => {
             />
           </m.div>
         </div>
-
       </div>
       <div className="text-center mt-12">
-        <a href="#gamification" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors">
+        <a
+          href="#gamification"
+          className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+        >
           Ver como o ELEV te mantém motivado ↓
         </a>
       </div>
